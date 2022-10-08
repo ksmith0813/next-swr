@@ -5,7 +5,7 @@ include:
 
 variables:
   APP_PORT: 3000
-  APP_ENVIRONMENT_SECRETS: "[\"aef-associate-portal-auth\"]"
+  APP_ENVIRONMENT_SECRETS: "[\"next-swr-auth\"]"
 
 build-image:
   variables:
