@@ -1,0 +1,14 @@
+# build environment
+FROM node:16.16.0-alpine as build
+ARG GITLAB_TOKEN
+RUN npm install -g npm@8.12.2
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install 
+COPY . ./
+RUN npm run test
+RUN npm run build
+
+CMD ["npm", "start"]

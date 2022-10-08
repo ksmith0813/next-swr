@@ -1,34 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AEF Associate Portal UI
 
-## Getting Started
+A webapp which enables AEF associates to view and administer various aspects of loans booked on the new Banking Platform and Thought Machine.
 
-First, run the development server:
+## Getting started
 
-```bash
-npm run dev
-# or
-yarn dev
+To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+
+Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+
+## Add your files
+
+- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
+- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+
+```
+cd existing_repo
+git remote add origin https://gitlab.com/moonpibank/ui-ux/aef-associate-portal-ui.git
+git branch -M main
+git push -uf origin main
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Usage
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### Setting up .env.local
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Create an `.env.local` file based on the `.env.sample` file provided. Please reach out to a dev on the AEF team for the client_id and client_secret for authentication.
 
-## Learn More
+Once updated, please run `npm run build` to use the config. Any .env updates require a build before `npm run dev`.
 
-To learn more about Next.js, take a look at the following resources:
+#### Logging in using google auth
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+In order to start a logged in session, on your local host visit the api route below:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`http://localhost:3000/api/auth/google`
 
-## Deploy on Vercel
+From here, click the button and it'll forward you to the Google sign-in page. At this point, you'll enter the Arvest Dev credentials. If you haven't, it'll require you to allow the app access. From there, you should be able to create a session using your Google account.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you see your name disappear while doing dev, please make sure there's a value for `NEXTAUTH_SECRET`, any value will be sufficient on local enviornments.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Support
+
+Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+
+## Roadmap
+
+If you have ideas for releases in the future, it is a good idea to list them in the README.
+
+## Contributing
+
+State if you are open to contributions and what your requirements are for accepting them.
+
+For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+
+You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+
+## Authors and acknowledgment
+
+Show your appreciation to those who have contributed to the project.
+
+## License
+
+For open source projects, say how it is licensed.
+
+## Project status
+
+If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
