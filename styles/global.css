@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    font-family: 'proxima-nova', system-ui, sans-serif !important;
+    font-family: sans-serif !important;
     @apply bg-grayScale01 flex flex-col min-h-screen !important;
     @apply print-white;
   }
