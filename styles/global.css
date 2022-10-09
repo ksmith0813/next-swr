@@ -1,0 +1,14 @@
+@import './antd.css';
+@import 'antd/dist/antd.min.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './print.css';
+
+@layer base {
+  body {
+    font-family: 'proxima-nova', system-ui, sans-serif !important;
+    @apply bg-grayScale01 flex flex-col min-h-screen !important;
+    @apply print-white;
+  }
+}

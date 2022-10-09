@@ -21,8 +21,6 @@
 
 # debug
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
@@ -51,8 +49,6 @@ yarn-error.log*
 !.vscode/extensions.json
 
 # storybook
-/storybook-static
-/test-results/
 
 # Python enums
 /enums/*.py

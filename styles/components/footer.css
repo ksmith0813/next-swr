@@ -1,0 +1,20 @@
+@layer components {
+  .footer {
+    background-color: theme('colors.offWhite');
+    height: theme('footer.height');
+    @apply fixed w-full top-full sticky text-white p-5 text-base;
+    @apply print-hidden;
+  }
+
+  .footer-container {
+    @apply h-full w-full inline-flex flex justify-between;
+  }
+
+  .footer-left-panel {
+    @apply h-fit w-fit inline-flex;
+  }
+
+  .footer a {
+    @apply text-white;
+  }
+}

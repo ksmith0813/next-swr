@@ -1,0 +1,22 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  .print-hidden {
+    @apply print:hidden !important;
+  }
+
+  .print-fit {
+    @apply print:h-fit !important;
+  }
+
+  .print-full,
+  .ant-card.print-full {
+    @apply print:w-full print:h-full border-none !important;
+  }
+
+  .print-white {
+    @apply print:bg-white print:shadow-none !important;
+  }
+}
