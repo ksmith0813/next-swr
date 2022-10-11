@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className='print-hidden bg-offWhite flex justify-between items-center p-[12px] w-full' id='header'>
+      <div className='print-hidden bg-offWhite flex justify-between items-center p-[12px] h-[70px] w-full' id='header'>
         <div>
           <Logo />
         </div>

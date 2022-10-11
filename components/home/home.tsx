@@ -4,7 +4,7 @@ import { SearchNoResults } from 'components/__common__/search/searchNoResults';
 
 export const Home = () => {
   return (
-    <Page title='Search'>
+    <Page title='Search for Stuff' showHero>
       <div className='content-container w-full h-full flex flex-col items-center'>
         <SearchNoResults message='No Results' />
       </div>

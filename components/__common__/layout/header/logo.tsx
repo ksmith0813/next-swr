@@ -11,8 +11,8 @@ export const Logo = () => {
         src={Signature}
         alt='Logo'
         layout='fixed'
-        width={150}
-        height={50}
+        width={160}
+        height={45}
         priority
         onClick={() => router.push({ pathname: '/' })}
         id='site-logo'
