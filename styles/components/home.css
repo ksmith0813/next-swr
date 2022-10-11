@@ -1,0 +1,6 @@
+@layer components {
+  .home-container {
+    @apply content-center;
+    @apply text-grayScale06 text-2xl text-justify;
+  }
+}

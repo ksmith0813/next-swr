@@ -5,7 +5,7 @@ import { Button } from 'antd';
 export const Home = () => {
   return (
     <Page title='React is pretty cool' showHero>
-      <div className='content-center text-grayScale06 text-2xl text-justify my-6'>
+      <div className='home-container'>
         <div className='w-[700px]'>
           I have recently started using Next.js and SWR for React projects. Vercel did a great job making things a
           little easier to implement React Apps. Some things I really like about the Next.js framework is that it
