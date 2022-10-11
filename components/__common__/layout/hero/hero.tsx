@@ -1,1 +1,1 @@
-export const Hero = () => <div className='hero'>Next.js | SWR | tailwind.css</div>;
+export const Hero = () => <div className='hero'>Next.js | SWR | GraphQL | tailwind.css</div>;

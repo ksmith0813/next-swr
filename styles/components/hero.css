@@ -2,7 +2,8 @@
   .hero {
     height: 300px;
     width: 100%;
-    background: radial-gradient(circle, rgba(89, 95, 170, 1) 39%, rgba(176, 187, 246, 1) 98%);
-    @apply text-5xl font-bold text-white flex items-center justify-center;
+    background: radial-gradient(circle, rgba(22, 130, 231, 1) 39%, rgba(174, 208, 238, 1) 98%);
+    @apply content-center;
+    @apply text-5xl font-bold text-white content-center;
   }
 }

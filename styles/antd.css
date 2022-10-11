@@ -56,6 +56,7 @@
 
 .ant-btn {
   height: 40px !important;
+  background-color: #1890ff !important;
 }
 
 .ant-btn-sm {
@@ -98,8 +99,7 @@
 .ant-btn-background-ghost.ant-btn-primary:hover,
 .ant-btn-background-ghost.ant-btn-primary:active,
 .ant-btn-background-ghost.ant-btn-primary:focus {
-  background-color: transparent !important;
-  color: #2f77e2 !important;
+  color: #1890ff !important;
 }
 
 .ant-btn.ant-btn-background-ghost[disabled] {
@@ -264,8 +264,8 @@
 .ant-pagination-item:hover,
 .ant-pagination-next:not(.ant-pagination-disabled):hover,
 .ant-pagination-prev:not(.ant-pagination-disabled):hover {
-  border: 1px solid #2f77e2 !important;
-  color: #2f77e2 !important;
+  border: 1px solid #1890ff !important;
+  color: #1890ff !important;
 }
 
 .ant-pagination-disabled span {

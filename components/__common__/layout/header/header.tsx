@@ -1,25 +1,14 @@
 import React from 'react';
-import { DisplayedUser } from 'components/__common__/layout/header/displayedUser';
+import { AvatarLogo } from './avatarLogo';
 import { Logo } from './logo';
 
-export const Header = () => {
-  const printableHeader = (
-    <div className='hidden print:inline-block'>
+export const Header = () => (
+  <div className='header-container' id='header'>
+    <div>
       <Logo />
     </div>
-  );
-
-  return (
-    <>
-      <div className='print-hidden bg-offWhite flex justify-between items-center p-[12px] h-[70px] w-full' id='header'>
-        <div>
-          <Logo />
-        </div>
-        <div>
-          <DisplayedUser />
-        </div>
-      </div>
-      {printableHeader}
-    </>
-  );
-};
+    <div>
+      <AvatarLogo />
+    </div>
+  </div>
+);

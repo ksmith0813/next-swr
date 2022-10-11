@@ -8,7 +8,7 @@ module.exports = {
       height: '5rem',
     },
     footer: {
-      height: '6rem',
+      height: '5rem',
     },
     extend: {
       colors: {

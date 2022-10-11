@@ -1,0 +1,8 @@
+@layer components {
+  .header-container {
+    background-color: white;
+    height: theme('footer.height');
+    @apply content-between;
+    @apply p-[12px] h-[70px] w-full;
+  }
+}

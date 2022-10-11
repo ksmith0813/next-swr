@@ -19,18 +19,9 @@ export const REGEX = {
   phone: /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]([0-9]{4})$/,
 };
 
-export const SEARCH_LABELS = {
-  results: 'You searched for:',
-  relatedAccounts: 'Accounts for:',
-};
-
 export const LINK_LABELS = {
-  signIn: 'Sign In',
-  signOut: 'Sign Out',
   searchResults: 'Search Results',
-  backToHistory: 'Back to History',
   backToSearchResults: 'Back to Search Results',
-  relatedAccounts: 'Related Accounts',
 };
 
 export const PROPS = {
@@ -40,9 +31,6 @@ export const PROPS = {
   title: 'title',
   button: 'button',
   dataRow: 'data-row',
-  customerInfo: 'customer-info',
-  contactInfo: 'contact-info',
-  otherContact: 'other-contact',
   cardTitle: 'card-title',
 };
 
@@ -56,6 +44,4 @@ export const PLACEHOLDERS = {
 
 export const STRINGS = {
   noResultsFound: 'No results found.',
-  notAvailable: 'N/A',
-  noSearchEntry: `Enter one or more search parameters to find results.`,
 };
