@@ -1,3 +1,3 @@
 # NEXT SWR App
 
-A webapp which utilizes the Next.js framework, SWR, Ant Design, and tailwind.css
+A React app that utilizes the Next.js framework, SWR, GraphQL, and tailwind.css
