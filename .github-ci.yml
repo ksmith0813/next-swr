@@ -1,7 +1,7 @@
 include:
-  - project: 'moonpibank/platform/ci/ci-base'
+  - project: 'next-swr/platform/ci/ci-base'
     ref: master
-    file: '/gitlab-ci/docker/generic/.gitlab-ci-template.yml'
+    file: '/github-ci/docker/generic/.github-ci-template.yml'
 
 variables:
   APP_PORT: 3000
