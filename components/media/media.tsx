@@ -1,16 +1,12 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Page } from 'components/__common__/layout/page/page';
 import { ROUTES, TITLES } from 'constants/global';
 import { SearchInput } from 'components/__common__/search/searchInput';
 
-interface MediaProps {
-  search?: string;
-}
-
-export const Media: FC<MediaProps> = ({ search }) => {
+export const Media = () => {
   return (
     <Page title={TITLES.media}>
-      <SearchInput route={ROUTES.media} />
+      <SearchInput route={ROUTES.media} placeholder='You can search for your favorite movie, TV show, or video game.' />
     </Page>
   );
 };
