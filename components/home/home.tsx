@@ -11,12 +11,14 @@ interface ExternalLinkProps {
   handler: () => void;
   icon: string;
   className: string;
+  size?: number;
+  top?: string;
 }
 
-const ExternalLink: FC<ExternalLinkProps> = ({ title, handler, icon, className }) => (
-  <div className={`${className} cursor-pointer`} onClick={handler} aria-hidden='true'>
-    <Image src={icon} alt={className} height={90} width={90} priority />
-    <div>{title}</div>
+const ExternalLink: FC<ExternalLinkProps> = ({ title, handler, icon, className, size = 90, top = '' }) => (
+  <div className={`${className} ${top} cursor-pointer`} onClick={handler} aria-hidden='true'>
+    <Image src={icon} alt={className} height={size} width={size} priority />
+    <div className={top}>{title}</div>
   </div>
 );
 
@@ -43,7 +45,14 @@ export const Home = () => {
           <div className='flex flex-row space-x-20 text-center'>
             <ExternalLink title='Next.js' handler={goToNextJs} icon={VercelIcon} className='next' />
             <ExternalLink title='SWR' handler={goToSWR} icon={SWRIcon} className='swr' />
-            <ExternalLink title='GraphQL' handler={goToGraphQL} icon={GraphQLIcon} className='graphql' />
+            <ExternalLink
+              title='GraphQL'
+              handler={goToGraphQL}
+              icon={GraphQLIcon}
+              className='graphql'
+              size={70}
+              top='pt-[9px]'
+            />
             <ExternalLink title='Tailwind' handler={goToTailwind} icon={TailwindIcon} className='tailwind' />
           </div>
         </div>
