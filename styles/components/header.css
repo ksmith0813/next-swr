@@ -17,4 +17,8 @@
   .header {
     @apply flex flex-row justify-center items-center text-xl space-x-10;
   }
+
+  .current-route {
+    color: #1890ff;
+  }
 }
