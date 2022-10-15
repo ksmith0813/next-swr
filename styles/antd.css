@@ -58,6 +58,7 @@
   height: 40px !important;
   background-color: #1890ff !important;
   min-width: 100px;
+  color: white !important;
 }
 
 .ant-btn-sm {

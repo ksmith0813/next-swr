@@ -7,7 +7,9 @@ export const Home = () => {
 
   const goToSWR = () => window.open('https://swr.vercel.app/', '_blank');
 
-  const goToGraphQL = () => window.open('https://tailwindcss.com/', '_blank');
+  const goToGraphQL = () => window.open('https://graphql.org/', '_blank');
+
+  const goToTailwind = () => window.open('https://tailwindcss.com/', '_blank');
 
   return (
     <Page title='React is pretty cool' showHero>
@@ -30,7 +32,7 @@ export const Home = () => {
             <Button type='primary' size='large' onClick={goToGraphQL}>
               GraphQL
             </Button>
-            <Button type='primary' size='large' onClick={goToNextJs}>
+            <Button type='primary' size='large' onClick={goToTailwind}>
               Tailwind
             </Button>
           </div>

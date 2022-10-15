@@ -6,7 +6,15 @@
     @apply p-[12px] h-[70px] w-full;
   }
 
+   .header-container > div {
+    width: 200px;
+  }
+
+   .header-container > div:last-child {
+    @apply flex justify-end;
+  }
+
   .header {
-    @apply flex flex-row w-[825px] justify-start items-center text-xl space-x-10;
+    @apply flex flex-row justify-center items-center text-xl space-x-10;
   }
 }
