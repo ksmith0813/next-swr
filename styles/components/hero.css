@@ -1,9 +1,19 @@
 @layer components {
-  .hero {
-    height: 300px;
+  .hero-container {
+    height: 400px;
     width: 100%;
-    background: radial-gradient(circle, rgba(22, 130, 231, 1) 39%, rgba(174, 208, 238, 1) 98%);
+    position: relative;
+    background-color: #171e26;
+  }
+  
+  .hero {
+    height: 400px;
+    width: 100%;
     @apply content-center;
-    @apply text-5xl font-bold text-white content-center;
+    @apply text-5xl font-bold text-white absolute;
+  }
+
+  .hero-image {
+    object-fit: cover; 
   }
 }

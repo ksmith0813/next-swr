@@ -1,6 +1,19 @@
 @layer components {
   .home-container {
     @apply content-center;
-    @apply text-grayScale06 text-2xl text-justify;
+    @apply text-2xl text-justify;
+  }
+
+  .next,
+  .swr {
+    color: #222222;
+  }
+
+  .graphql {
+    color: #e10098;
+  }
+
+  .tailwind {
+    color: rgb(14, 165, 233);
   }
 }
