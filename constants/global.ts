@@ -1,6 +1,14 @@
 export const ROUTES = {
   home: '/',
-  search: '/search/[q]',
+  media: '/media/[q]',
+  weather: '/weather/[q]',
+  people: '/people/[q]',
+};
+
+export const TITLES = {
+  media: 'Search for Media',
+  weather: 'Search for Weather',
+  people: 'Search for People',
 };
 
 export const PHONE_TYPE = {
@@ -43,5 +51,6 @@ export const PLACEHOLDERS = {
 };
 
 export const STRINGS = {
+  search: 'search',
   noResultsFound: 'No results found.',
 };

@@ -22,7 +22,7 @@ export const Page: FC<PageProps> = ({ title, children, showHero = false }) => (
           {title}
         </h1>
       </div>
-      <div className='flex flex-col h-full w-full' id={pageTestIds.mainContent}>
+      <div className='flex flex-col h-full w-full max-w-screen-2xl m-auto' id={pageTestIds.mainContent}>
         {children}
       </div>
     </main>

@@ -57,6 +57,7 @@
 .ant-btn {
   height: 40px !important;
   background-color: #1890ff !important;
+  min-width: 100px;
 }
 
 .ant-btn-sm {
@@ -91,6 +92,11 @@
 .ant-btn > span {
   font-weight: 700 !important;
   font-size: 16px;
+}
+
+.ant-btn-link {
+  background-color: transparent !important;
+  color: #6E7079 !important;
 }
 
 .ant-btn-link:hover,

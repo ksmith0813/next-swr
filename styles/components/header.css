@@ -5,4 +5,8 @@
     @apply content-between;
     @apply p-[12px] h-[70px] w-full;
   }
+
+  .header {
+    @apply flex flex-row w-[825px] justify-start items-center text-xl space-x-10;
+  }
 }

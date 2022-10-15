@@ -8,7 +8,7 @@
 
 @layer base {
   body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: sans-serif;
     @apply bg-grayScale01 flex flex-col min-h-screen !important;
     @apply print-white;
   }

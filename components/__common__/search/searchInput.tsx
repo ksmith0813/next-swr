@@ -2,15 +2,16 @@ import React, { ChangeEvent, FC, KeyboardEventHandler, useState } from 'react';
 import { Col, Input, Row } from 'antd';
 import { ArrowLeftOutlined, SearchOutlined } from '@ant-design/icons';
 import { IconLinkButton } from 'components/__common__/button/iconLinkButton';
-import { LINK_LABELS, ROUTES } from 'constants/global';
+import { LINK_LABELS } from 'constants/global';
 import { useRouter } from 'next/router';
 
 export interface SearchProps {
+  route: string;
   placeholder?: string;
   hasSearchIcon?: boolean;
 }
 
-export const SearchInput: FC<SearchProps> = ({ placeholder = 'Enter Search', hasSearchIcon = true }) => {
+export const SearchInput: FC<SearchProps> = ({ route, placeholder = 'Enter Search', hasSearchIcon = true }) => {
   const router = useRouter();
 
   const search = router?.query?.q;
@@ -26,7 +27,7 @@ export const SearchInput: FC<SearchProps> = ({ placeholder = 'Enter Search', has
 
   const handleReturnToSearch = () => {
     router.push({
-      pathname: ROUTES.search,
+      pathname: route,
       query: { q: search },
     });
   };
@@ -36,7 +37,7 @@ export const SearchInput: FC<SearchProps> = ({ placeholder = 'Enter Search', has
     setSearchString(value);
   };
 
-  const handleSubmit: KeyboardEventHandler<HTMLInputElement> = () => searchString && handleSearch(ROUTES.search);
+  const handleSubmit: KeyboardEventHandler<HTMLInputElement> = () => searchString && handleSearch(route);
 
   const backToResultsContent = search && (
     <IconLinkButton
