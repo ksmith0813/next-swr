@@ -4,6 +4,14 @@
     @apply text-2xl text-justify;
   }
 
+  .external-link {
+    transition: transform 250ms;
+  }
+
+   .external-link:hover {
+    transform: scale(1.15);
+  }
+
   .next,
   .swr {
     color: #222222;

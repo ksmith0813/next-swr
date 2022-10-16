@@ -16,7 +16,7 @@ interface ExternalLinkProps {
 }
 
 const ExternalLink: FC<ExternalLinkProps> = ({ title, handler, icon, className, size = 90, top = '' }) => (
-  <div className={`${className} ${top} cursor-pointer`} onClick={handler} aria-hidden='true'>
+  <div className={`external-link cursor-pointer ${className} ${top}`} onClick={handler} aria-hidden='true'>
     <Image src={icon} alt={className} height={size} width={size} priority />
     <div className={top}>{title}</div>
   </div>
