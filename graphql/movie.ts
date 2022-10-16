@@ -3,7 +3,6 @@ export const GET_MOVIES = `
     movies(search:$search) {
       Search {
         imdbID
-        Poster
         Title
         Type
         Year

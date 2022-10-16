@@ -6,11 +6,11 @@
     @apply p-[12px] h-[70px] w-full;
   }
 
-   .header-container > div {
+  .header-container > div {
     width: 200px;
   }
 
-   .header-container > div:last-child {
+  .header-container > div:last-child {
     @apply flex justify-end;
   }
 

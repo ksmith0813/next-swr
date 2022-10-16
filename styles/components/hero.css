@@ -5,7 +5,7 @@
     position: relative;
     background-color: #171e26;
   }
-  
+
   .hero {
     height: 400px;
     width: 100%;
@@ -14,6 +14,6 @@
   }
 
   .hero-image {
-    object-fit: cover; 
+    object-fit: cover;
   }
 }

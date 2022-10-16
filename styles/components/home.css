@@ -8,7 +8,7 @@
     transition: transform 250ms;
   }
 
-   .external-link:hover {
+  .external-link:hover {
     transform: scale(1.15);
   }
 

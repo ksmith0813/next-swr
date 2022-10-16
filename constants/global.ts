@@ -53,4 +53,5 @@ export const PLACEHOLDERS = {
 export const STRINGS = {
   search: 'search',
   noResultsFound: 'No results found.',
+  moviePlaceHolder: 'You can search for your favorite movie, TV show, or video game.',
 };
