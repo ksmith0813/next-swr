@@ -38,8 +38,8 @@ export const Home = () => {
           I have recently started using Next.js and SWR for React projects. Vercel did a great job making things a
           little easier to implement React Apps. Some things I really like about the Next.js framework is that it
           handles routing and code splitting out of the box. Also, the Image component is really useful for displaying
-          assets like SVGs on a page. Goodbye webpack.config.js. Click below to learn more about Next.js, SWR, GraphQL,
-          and Tailwind.
+          assets like SVGs on a page. Goodbye webpack.config.js. Click the links below to learn more about Next.js, SWR,
+          GraphQL, and Tailwind.
         </div>
         <div className='mt-14'>
           <div className='flex flex-row space-x-20 text-center'>
