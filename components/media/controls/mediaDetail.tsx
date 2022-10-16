@@ -6,6 +6,7 @@ import useSWR from 'swr';
 import { exists, useSWRReady } from 'utils/swr';
 import { GET_MOVIE } from 'graphql/movie';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 interface RatingsProps {
   Source: string;
@@ -14,7 +15,7 @@ interface RatingsProps {
 
 interface MediaDetailProps {
   Title: string;
-  Poster?: string;
+  Poster: string;
   Plot?: string;
   Genre?: string;
   Released?: string;
@@ -55,9 +56,9 @@ export const MediaDetail = () => {
   const hasRatings = selectedMedia.Ratings.length > 0;
 
   return (
-    <div className='media-detail'>
-      <Row className='border-bottom-light pb-150'>
-        <Col className='fs-150' flex={1}>
+    <div className='bg-white'>
+      <Row className='border-b border-grayScale03 pb-1'>
+        <Col className='text-xl' flex={1}>
           {selectedMedia.Title}
         </Col>
         <Col>
@@ -66,35 +67,35 @@ export const MediaDetail = () => {
           </Button>
         </Col>
       </Row>
-      <Row className='pt-200'>
+      <Row className='pt-2'>
         <Col>
-          {selectedMedia.Poster !== 'N/A' && <img src={selectedMedia.Poster} className='media-poster' alt='' />}
+          {selectedMedia.Poster !== 'N/A' && <Image src={selectedMedia.Poster} height={200} width={100} alt='' />}
           {selectedMedia.Poster === 'N/A' && <NoData message='Poster not available' />}
         </Col>
-        <Col span={9} className='pl-200'>
+        <Col span={9} className='pl-2'>
           <DataItem label='Plot'>{selectedMedia.Plot}</DataItem>
-          <DataItem label='Release Year' labelClasses='pt-100'>
+          <DataItem label='Release Year' labelClasses='pt-1'>
             {moment(selectedMedia.Released).format('MM/DD/YYYY')}
           </DataItem>
-          <DataItem label='Director' labelClasses='pt-100'>
+          <DataItem label='Director' labelClasses='pt-1'>
             {selectedMedia.Director}{' '}
           </DataItem>
-          <DataItem label='Actors' labelClasses='pt-100'>
+          <DataItem label='Actors' labelClasses='pt-1'>
             {selectedMedia.Actors}
           </DataItem>
-          <DataItem label='Writers' labelClasses='pt-100'>
+          <DataItem label='Writers' labelClasses='pt-1'>
             {selectedMedia.Writer}
           </DataItem>
-          <DataItem label='Genre' labelClasses='pt-100'>
+          <DataItem label='Genre' labelClasses='pt-1'>
             {selectedMedia?.Genre?.split(',').map((g) => (
               <Tag key={g}>{g}</Tag>
             ))}
           </DataItem>
-          <DataItem label='Rated' labelClasses='pt-100'>
+          <DataItem label='Rated' labelClasses='pt-1'>
             {selectedMedia.Rated}
           </DataItem>
         </Col>
-        <Col span={8} className='pl-200'>
+        <Col span={8} className='pl-2'>
           {hasRatings && (
             <>
               <b>Ratings</b>
@@ -102,19 +103,19 @@ export const MediaDetail = () => {
                 <DataItem
                   key={r.Source}
                   label={r.Source === 'Internet Movie Database' ? 'IMDB' : r.Source}
-                  labelClasses='pt-150 light-text'>
+                  labelClasses='pt-2 text-grayScale06'>
                   <Progress percent={getRating(r.Value)} />
                 </DataItem>
               ))}
             </>
           )}
-          <DataItem label='Box Office' labelClasses={hasRatings ? 'pt-200' : ''} childrenClasses='fs-150'>
+          <DataItem label='Box Office' labelClasses={hasRatings ? 'pt-2' : ''} childrenClasses='text-xl'>
             {selectedMedia.BoxOffice}
           </DataItem>
-          <DataItem label='Awards' labelClasses='pt-100'>
+          <DataItem label='Awards' labelClasses='pt-1'>
             {selectedMedia.Awards}
           </DataItem>
-          <DataItem label='Runtime' labelClasses='pt-100'>
+          <DataItem label='Runtime' labelClasses='pt-1'>
             {selectedMedia.Runtime}
           </DataItem>
         </Col>

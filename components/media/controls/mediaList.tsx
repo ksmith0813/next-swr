@@ -40,7 +40,7 @@ export const MediaList = () => {
               <Col span={4} className='pl-1'>
                 {item.Year}
               </Col>
-              <Col span={4} className='pl-050 capitalize'>
+              <Col span={4}>
                 <MediaType type={item.Type} />
               </Col>
             </Row>

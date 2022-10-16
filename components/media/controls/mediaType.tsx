@@ -3,6 +3,7 @@ import Image from 'next/image';
 import MovieIcon from 'public/movie-default.svg';
 import TVIcon from 'public/tv-default.svg';
 import GameIcon from 'public/game-default.svg';
+import { Tooltip } from 'antd';
 
 interface MediaTypeProps {
   type: string;
@@ -14,26 +15,23 @@ export const MediaType: FC<MediaTypeProps> = ({ type }) => {
   switch (type) {
     case 'game':
       icon = (
-        <>
-          <Image src={GameIcon} height={25} width={25} alt='Game' />
-          <span className='media-type-text'>Game</span>
-        </>
+        <Tooltip title='Video Game' mouseEnterDelay={0.75}>
+          <Image src={GameIcon} height={25} width={25} alt='Video Game' />
+        </Tooltip>
       );
       break;
     case 'series':
       icon = (
-        <>
-          <Image src={TVIcon} height={25} width={25} alt='TV' />
-          <span className='media-type-text'>TV</span>
-        </>
+        <Tooltip title='TV Series' mouseEnterDelay={0.75}>
+          <Image src={TVIcon} height={25} width={25} alt='TV Series' />
+        </Tooltip>
       );
       break;
     default:
       icon = (
-        <>
+        <Tooltip title='Movie' mouseEnterDelay={0.75}>
           <Image src={MovieIcon} height={25} width={25} alt='Movie' />
-          <span className='media-type-text'>Movie</span>
-        </>
+        </Tooltip>
       );
       break;
   }
