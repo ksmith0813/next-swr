@@ -4,7 +4,7 @@ import { GET_MOVIES } from 'graphql/movie';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { exists, useSWRReady } from 'utils/swr';
-import type { MediaItemProps } from '../controls/mediaList';
+import type { MediaItemProps } from './media';
 
 interface MediaProviderProps {
   children: ReactNode;

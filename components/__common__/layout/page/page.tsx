@@ -1,6 +1,6 @@
-import { SearchInput } from 'components/__common__/search/searchInput';
-import { STRINGS } from 'constants/global';
 import React, { FC } from 'react';
+import { SearchInput } from 'components/__common__/controls/searchInput';
+import { STRINGS } from 'constants/global';
 import { Hero } from '../hero/hero';
 
 interface PageProps {

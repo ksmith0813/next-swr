@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from 'components/__common__/layout/page/page';
 import { ROUTES, TITLES } from 'constants/global';
-import { SearchInput } from 'components/__common__/search/searchInput';
+import { SearchInput } from 'components/__common__/controls/searchInput';
 
 export const Weather = () => {
   return (
