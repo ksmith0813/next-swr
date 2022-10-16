@@ -32,10 +32,7 @@ export const getMockSessionData = (loggedIn?: boolean) => {
       }
     : null;
 
-  return {
-    status: status,
-    data: data,
-  };
+  return { status, data };
 };
 
 export const createMockSession = (loggedIn?: boolean) => {
