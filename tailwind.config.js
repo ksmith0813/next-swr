@@ -17,6 +17,7 @@ module.exports = {
         grayScale05: '#9395A1',
         grayScale06: '#6E7079',
         grayScale07: '#494A51',
+        offWhite: '#F8F8F9',
       },
       screens: {
         print: { raw: 'print' },

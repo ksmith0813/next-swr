@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import Image from 'next/image';
 import MovieIcon from 'public/movie-default.svg';
 import TVIcon from 'public/tv-default.svg';
@@ -9,30 +9,31 @@ interface MediaTypeProps {
   type: string;
 }
 
+interface IconProps {
+  title: ReactNode;
+  alt: string | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  image: any;
+}
+
 export const MediaType: FC<MediaTypeProps> = ({ type }) => {
   let icon;
 
+  const IconContent: FC<IconProps> = ({ title, alt, image }) => (
+    <Tooltip title={title} mouseEnterDelay={0.75}>
+      <Image src={image} height={25} width={25} alt={alt} />
+    </Tooltip>
+  );
+
   switch (type) {
     case 'game':
-      icon = (
-        <Tooltip title='Video Game' mouseEnterDelay={0.75}>
-          <Image src={GameIcon} height={25} width={25} alt='Video Game' />
-        </Tooltip>
-      );
+      icon = <IconContent title='Video Game' alt='Video Game' image={GameIcon} />;
       break;
     case 'series':
-      icon = (
-        <Tooltip title='TV Series' mouseEnterDelay={0.75}>
-          <Image src={TVIcon} height={25} width={25} alt='TV Series' />
-        </Tooltip>
-      );
+      icon = <IconContent title='TV Series' alt='TV Series' image={TVIcon} />;
       break;
     default:
-      icon = (
-        <Tooltip title='Movie' mouseEnterDelay={0.75}>
-          <Image src={MovieIcon} height={25} width={25} alt='Movie' />
-        </Tooltip>
-      );
+      icon = <IconContent title='Movie' alt='Movie' image={MovieIcon} />;
       break;
   }
 
