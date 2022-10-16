@@ -51,7 +51,7 @@ export const Home = () => {
               icon={GraphQLIcon}
               className='graphql'
               size={70}
-              top='pt-[9px]'
+              top='pt-[10px]'
             />
             <ExternalLink title='Tailwind' handler={goToTailwind} icon={TailwindIcon} className='tailwind' />
           </div>
