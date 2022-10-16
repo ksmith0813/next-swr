@@ -14,6 +14,11 @@
   box-shadow: none !important;
 }
 
+.ant-input-affix-wrapper-focused,
+.ant-input-affix-wrapper:focus {
+  box-shadow: none !important;
+}
+
 .ant-input-affix-wrapper .search-input-icon {
   color: #6e7079;
 }
@@ -22,21 +27,18 @@
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused,
 .ant-picker {
-  box-shadow: 0px 1px 3px #9395a1 !important;
   border-color: #d9d9d9 !important;
 }
 
 .ant-form .ant-input {
   padding: 16px 12px 4px 12px !important;
   height: 55px !important;
-  box-shadow: 0px 1px 3px #9395a1 !important;
   background-color: #f8f8f9 !important;
 }
 
 .ant-form .ant-select .ant-select-selector {
   padding: 20px 10px 10px 11px !important;
   min-height: 55px !important;
-  box-shadow: 0px 1px 3px #9395a1 !important;
   background-color: #f8f8f9 !important;
 }
 
@@ -165,7 +167,6 @@
 
 .ant-card {
   border-radius: 0 !important;
-  box-shadow: 0 0 8px #9395a1 !important;
 }
 
 .ant-card-head {

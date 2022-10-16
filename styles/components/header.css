@@ -3,7 +3,7 @@
     background-color: white;
     height: theme('footer.height');
     @apply content-between;
-    @apply p-[12px] h-[70px] w-full;
+    @apply border-b border-grayScale03 p-[12px] h-[70px] w-full;
   }
 
   .header-container > div {
