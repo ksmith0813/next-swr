@@ -3,6 +3,6 @@
     @apply p-4 border border-grayScale03 text-xl text-grayScale07 bg-white;
   }
   .media-item {
-    @apply p-4 border-l border-r border-b border-grayScale03 cursor-pointer odd:bg-white;
+    @apply p-4 border-l border-r border-b border-grayScale03 cursor-pointer bg-white;
   }
 }
