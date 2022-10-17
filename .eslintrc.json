@@ -9,7 +9,7 @@
     "next/core-web-vitals",
     "eslint-config-airbnb",
     "eslint-config-airbnb-typescript",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
   "env": {
     "node": true,
@@ -20,7 +20,8 @@
     "prettier"
   ],
   "ignorePatterns": [
-    ".eslintrc.json"
+    ".eslintrc.json",
+    "*.config.js"
   ],
   "rules": {
     "no-plusplus": "off",    
