@@ -1,4 +1,4 @@
-import { Col, Row, Progress, Button, Tag } from 'antd';
+import { Col, Row, Progress, Tag } from 'antd';
 import moment from 'moment';
 import { DataItem } from 'components/__common__/display/dataItem';
 import { NoData } from 'components/__common__/display/noData';
@@ -6,9 +6,10 @@ import useSWR from 'swr';
 import { exists, useSWRReady } from 'utils/swr';
 import { GET_MOVIE } from 'graphql/movie';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import { ROUTES, TITLES } from 'constants/global';
 import { Page } from 'components/__common__/layout/page/page';
+import { IconLinkButton } from 'components/__common__/button/iconLinkButton';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 interface RatingsProps {
   Source: string;
@@ -67,53 +68,58 @@ export const MediaDetail = () => {
   const hasRatings = selectedMedia?.Ratings?.length > 0;
 
   const headerContent = (
-    <Row className='border-b border-grayScale03 p-4' align='middle'>
-      <Col className='text-2xl' flex={1}>
-        {selectedMedia.Title}
-      </Col>
+    <Row className='border-b border-grayScale03 p-4 pl-6' align='middle'>
+      <Col className='text-xl'>{selectedMedia.Title}</Col>
       <Col>
-        <Button type='primary' onClick={() => backToAll()}>
-          Back to All
-        </Button>
+        <IconLinkButton
+          title='Back to Results'
+          icon={<ArrowLeftOutlined />}
+          onClick={backToAll}
+          testId='back-to-media-results'
+        />
       </Col>
     </Row>
   );
 
   const posterContent = (
-    <Col>
-      {selectedMedia.Poster !== 'N/A' && <Image src={selectedMedia.Poster} height={450} width={300} alt='' priority />}
+    <Col span={4}>
+      {selectedMedia.Poster !== 'N/A' && (
+        <div className='media-postor'>
+          <img src={selectedMedia.Poster} alt='movie-poster' />
+        </div>
+      )}
       {selectedMedia.Poster === 'N/A' && <NoData message='Poster not available' />}
     </Col>
   );
 
   const detailContent = (
-    <Col span={9} className='pl-6'>
+    <Col span={10} className='pl-6'>
       <DataItem label='Plot'>{selectedMedia.Plot}</DataItem>
-      <DataItem label='Release Year' labelClasses='pt-4'>
+      <DataItem label='Release Year' labelClasses='pt-6'>
         {moment(selectedMedia.Released).format('MM/DD/YYYY')}
       </DataItem>
-      <DataItem label='Director' labelClasses='pt-4'>
+      <DataItem label='Director' labelClasses='pt-6'>
         {selectedMedia.Director}{' '}
       </DataItem>
-      <DataItem label='Actors' labelClasses='pt-4'>
+      <DataItem label='Actors' labelClasses='pt-6'>
         {selectedMedia.Actors}
       </DataItem>
-      <DataItem label='Writers' labelClasses='pt-4'>
+      <DataItem label='Writers' labelClasses='pt-6'>
         {selectedMedia.Writer}
       </DataItem>
-      <DataItem label='Genre' labelClasses='pt-4'>
+      <DataItem label='Genre' labelClasses='pt-6'>
         {selectedMedia?.Genre?.split(',').map((g) => (
           <Tag key={g}>{g}</Tag>
         ))}
       </DataItem>
-      <DataItem label='Rated' labelClasses='pt-4'>
+      <DataItem label='Rated' labelClasses='pt-6'>
         {selectedMedia.Rated}
       </DataItem>
     </Col>
   );
 
   const ratingsContent = (
-    <Col span={8} className='pl-6'>
+    <Col span={10} className='pl-6'>
       {hasRatings && (
         <>
           <b>Ratings</b>
@@ -127,21 +133,21 @@ export const MediaDetail = () => {
           ))}
         </>
       )}
-      <DataItem label='Box Office' labelClasses={hasRatings ? 'pt-2' : ''} childrenClasses='text-xl'>
+      <DataItem label='Box Office' labelClasses={hasRatings ? 'pt-6' : ''} childrenClasses='text-xl'>
         {selectedMedia.BoxOffice}
       </DataItem>
-      <DataItem label='Awards' labelClasses='pt-4'>
+      <DataItem label='Awards' labelClasses='pt-6'>
         {selectedMedia.Awards}
       </DataItem>
-      <DataItem label='Runtime' labelClasses='pt-4'>
+      <DataItem label='Runtime' labelClasses='pt-6'>
         {selectedMedia.Runtime}
       </DataItem>
     </Col>
   );
 
   return (
-    <Page title={TITLES.media} route={ROUTES.mediaDetail}>
-      <div className='bg-white'>
+    <Page title={TITLES.media}>
+      <div className='bg-white text-[16px] border border-grayScale03'>
         {headerContent}
         <Row className='p-6'>
           {posterContent}

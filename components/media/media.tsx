@@ -8,7 +8,9 @@ import Image from 'next/image';
 import MovieIcon from 'public/movie-default.svg';
 import TVIcon from 'public/tv-default.svg';
 import GameIcon from 'public/game-default.svg';
-import { MediaProps, useMediaContext } from './mediaContext';
+import useSWR from 'swr';
+import { exists, useSWRReady } from 'utils/swr';
+import { GET_MOVIES } from 'graphql/movie';
 
 interface MediaTypeProps {
   type: string;
@@ -19,6 +21,13 @@ interface IconProps {
   alt: string | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any;
+}
+
+interface MediaItemProps {
+  imdbID: string;
+  Title: string;
+  Type: string;
+  Year: string;
 }
 
 const MediaType: FC<MediaTypeProps> = ({ type }) => {
@@ -45,20 +54,22 @@ const MediaType: FC<MediaTypeProps> = ({ type }) => {
   return icon;
 };
 
-export interface MediaItemProps {
-  imdbID: string;
-  Title: string;
-  Type: string;
-  Year: string;
-}
-
 export const Media = () => {
   const router = useRouter();
-  const { loading, media, onSelectMedia } = useMediaContext() as MediaProps;
-
   const search = router?.query?.q as string;
 
-  const initialState = (!loading && !media) || !search;
+  const { data, error } = useSWR(useSWRReady(exists(search), GET_MOVIES, { search }));
+
+  const media = (data && data.movies && data.movies.Search) || undefined;
+
+  const initialState = (!data && !error) || !search;
+
+  const onSelectMedia = (searchString: string, imdbID: string) => {
+    router.push({
+      pathname: ROUTES.mediaDetail,
+      query: { q: searchString, id: imdbID },
+    });
+  };
 
   const mediaListContent = !initialState && (
     <div className='pt-4'>
@@ -78,7 +89,7 @@ export const Media = () => {
           {media?.map((item: MediaItemProps) => (
             <Row
               key={item.imdbID}
-              className='media-item'
+              className='media-item hover:bg-grayScale01'
               align='middle'
               onClick={() => onSelectMedia(search, item.imdbID)}>
               <Col span={16}>{item.Title}</Col>
@@ -98,7 +109,7 @@ export const Media = () => {
     </div>
   );
 
-  const noDataContent = initialState && <NoData />;
+  const noDataContent = !search && <NoData />;
 
   return (
     <Page title={TITLES.media} route={ROUTES.mediaSearch}>
