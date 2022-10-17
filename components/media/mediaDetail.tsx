@@ -80,7 +80,9 @@ export const MediaDetail = () => {
       </Row>
       <Row className='p-6'>
         <Col>
-          {selectedMedia.Poster !== 'N/A' && <Image src={selectedMedia.Poster} height={450} width={300} alt='' />}
+          {selectedMedia.Poster !== 'N/A' && (
+            <Image src={selectedMedia.Poster} height={450} width={300} alt='' priority />
+          )}
           {selectedMedia.Poster === 'N/A' && <NoData message='Poster not available' />}
         </Col>
         <Col span={9} className='pl-6'>
