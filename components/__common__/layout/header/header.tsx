@@ -1,4 +1,4 @@
-import { ROUTES, STRINGS } from 'constants/global';
+import { ROUTES } from 'constants/global';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -9,7 +9,7 @@ export const Header = () => {
   const router = useRouter();
   const { pathname } = router;
 
-  const routeClass = (route: string) => `${pathname === route ? 'current-route' : ''}`;
+  const routeClass = (routes: string[]) => `${routes.includes(pathname) ? 'current-route' : ''}`;
 
   return (
     <div className='header-container' id='header'>
@@ -17,23 +17,23 @@ export const Header = () => {
         <Logo />
       </div>
       <div className='header'>
-        <div className={routeClass(ROUTES.home)}>
+        <div className={routeClass([ROUTES.home])}>
           <Link href={ROUTES.home} id='home-link'>
             Home
           </Link>
         </div>
-        <div className={routeClass(ROUTES.media)}>
-          <Link href={{ pathname: ROUTES.media, query: { q: STRINGS.search } }} id='media-link'>
+        <div className={routeClass([ROUTES.media, ROUTES.mediaSearch, ROUTES.mediaDetail])}>
+          <Link href={{ pathname: ROUTES.media }} id='media-link'>
             Media
           </Link>
         </div>
-        <div className={routeClass(ROUTES.weather)}>
-          <Link href={{ pathname: ROUTES.weather, query: { q: STRINGS.search } }} id='weather-link'>
+        <div className={routeClass([ROUTES.weather, ROUTES.weatherSearch])}>
+          <Link href={{ pathname: ROUTES.weather }} id='weather-link'>
             Weather
           </Link>
         </div>
-        <div className={routeClass(ROUTES.people)}>
-          <Link href={{ pathname: ROUTES.people, query: { q: STRINGS.search } }} id='people-link'>
+        <div className={routeClass([ROUTES.people, ROUTES.peopleSearch])}>
+          <Link href={{ pathname: ROUTES.people }} id='people-link'>
             People
           </Link>
         </div>

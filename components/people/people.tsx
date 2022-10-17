@@ -1,15 +1,17 @@
 import React from 'react';
 import { Page } from 'components/__common__/layout/page/page';
 import { ROUTES, TITLES } from 'constants/global';
-import { SearchInput } from 'components/__common__/controls/searchInput';
+import { useRouter } from 'next/router';
+import { NoData } from 'components/__common__/display/noData';
 
 export const People = () => {
+  const router = useRouter();
+
+  const search = router?.query?.q as string;
+
   return (
-    <Page title={TITLES.people}>
-      <SearchInput
-        route={ROUTES.people}
-        placeholder='You can search for people by name, city, state, or date of birth.'
-      />
+    <Page title={TITLES.people} route={ROUTES.peopleSearch}>
+      {!search && <NoData />}
     </Page>
   );
 };

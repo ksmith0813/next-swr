@@ -58,7 +58,7 @@ export const Media = () => {
 
   const search = router?.query?.q as string;
 
-  const initialState = (!loading && !media) || search === 'search';
+  const initialState = (!loading && !media) || !search;
 
   const mediaListContent = !initialState && (
     <div className='pt-4'>
@@ -76,7 +76,11 @@ export const Media = () => {
             </Col>
           </Row>
           {media?.map((item: MediaItemProps) => (
-            <Row key={item.imdbID} className='media-item' align='middle' onClick={() => onSelectMedia(item.imdbID)}>
+            <Row
+              key={item.imdbID}
+              className='media-item'
+              align='middle'
+              onClick={() => onSelectMedia(search, item.imdbID)}>
               <Col span={16}>{item.Title}</Col>
               <Col span={4} className='pl-1'>
                 {item.Year}
@@ -97,7 +101,7 @@ export const Media = () => {
   const noDataContent = initialState && <NoData />;
 
   return (
-    <Page title={TITLES.media} route={ROUTES.media}>
+    <Page title={TITLES.media} route={ROUTES.mediaSearch}>
       {mediaListContent}
       {noDataContent}
     </Page>

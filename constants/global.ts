@@ -1,8 +1,12 @@
 export const ROUTES = {
   home: '/',
-  media: '/media/[q]',
-  weather: '/weather/[q]',
-  people: '/people/[q]',
+  media: '/media',
+  mediaSearch: '/media/[q]',
+  mediaDetail: '/media/[q]/[id]',
+  weather: '/weather',
+  weatherSearch: '/weather/[q]',
+  people: '/people',
+  peopleSearch: '/people/[q]',
 };
 
 export const TITLES = {

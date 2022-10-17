@@ -13,7 +13,7 @@ interface MediaProviderProps {
 export interface MediaProps {
   loading: boolean;
   media?: MediaItemProps[];
-  onSelectMedia: (imdbID: string) => void;
+  onSelectMedia: (search: string, imdbID: string) => void;
 }
 
 export const MediaContext = createContext<MediaProps | undefined>(undefined);
@@ -25,10 +25,10 @@ export const MediaProvider: FC<MediaProviderProps> = ({ children }) => {
   const { data, error } = useSWR(useSWRReady(exists(search), GET_MOVIES, { search }));
 
   const onSelectMedia = useCallback(
-    (imdbID: string) => {
+    (searchString: string, imdbID: string) => {
       router.push({
-        pathname: ROUTES.media,
-        query: { q: imdbID },
+        pathname: ROUTES.mediaDetail,
+        query: { q: searchString, id: imdbID },
       });
     },
     [router],

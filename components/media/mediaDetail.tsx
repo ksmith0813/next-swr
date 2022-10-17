@@ -7,6 +7,8 @@ import { exists, useSWRReady } from 'utils/swr';
 import { GET_MOVIE } from 'graphql/movie';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { ROUTES, TITLES } from 'constants/global';
+import { Page } from 'components/__common__/layout/page/page';
 
 interface RatingsProps {
   Source: string;
@@ -32,11 +34,15 @@ interface MediaDetailProps {
 export const MediaDetail = () => {
   const router = useRouter();
   const search = router?.query?.q as string;
+  const id = router?.query?.id as string;
 
-  const { data } = useSWR(useSWRReady(exists(search), GET_MOVIE, { search }));
+  const { data } = useSWR(useSWRReady(exists(id), GET_MOVIE, { imdbId: id }));
 
   const backToAll = () => {
-    // TODO
+    router.push({
+      pathname: ROUTES.mediaSearch,
+      query: { q: search },
+    });
   };
 
   const getRating = (rating: string) => {
@@ -52,13 +58,18 @@ export const MediaDetail = () => {
     return value;
   };
 
-  const selectedMedia: MediaDetailProps = data;
-  const hasRatings = selectedMedia.Ratings.length > 0;
+  if (!data) return null;
 
-  return (
+  const { movie } = data;
+
+  const selectedMedia: MediaDetailProps = movie;
+
+  const hasRatings = selectedMedia?.Ratings?.length > 0;
+
+  const mediaDetailContent = (
     <div className='bg-white'>
-      <Row className='border-b border-grayScale03 pb-1'>
-        <Col className='text-xl' flex={1}>
+      <Row className='border-b border-grayScale03 p-4' align='middle'>
+        <Col className='text-2xl' flex={1}>
           {selectedMedia.Title}
         </Col>
         <Col>
@@ -67,35 +78,35 @@ export const MediaDetail = () => {
           </Button>
         </Col>
       </Row>
-      <Row className='pt-2'>
+      <Row className='p-6'>
         <Col>
-          {selectedMedia.Poster !== 'N/A' && <Image src={selectedMedia.Poster} height={200} width={100} alt='' />}
+          {selectedMedia.Poster !== 'N/A' && <Image src={selectedMedia.Poster} height={450} width={300} alt='' />}
           {selectedMedia.Poster === 'N/A' && <NoData message='Poster not available' />}
         </Col>
-        <Col span={9} className='pl-2'>
+        <Col span={9} className='pl-6'>
           <DataItem label='Plot'>{selectedMedia.Plot}</DataItem>
-          <DataItem label='Release Year' labelClasses='pt-1'>
+          <DataItem label='Release Year' labelClasses='pt-4'>
             {moment(selectedMedia.Released).format('MM/DD/YYYY')}
           </DataItem>
-          <DataItem label='Director' labelClasses='pt-1'>
+          <DataItem label='Director' labelClasses='pt-4'>
             {selectedMedia.Director}{' '}
           </DataItem>
-          <DataItem label='Actors' labelClasses='pt-1'>
+          <DataItem label='Actors' labelClasses='pt-4'>
             {selectedMedia.Actors}
           </DataItem>
-          <DataItem label='Writers' labelClasses='pt-1'>
+          <DataItem label='Writers' labelClasses='pt-4'>
             {selectedMedia.Writer}
           </DataItem>
-          <DataItem label='Genre' labelClasses='pt-1'>
+          <DataItem label='Genre' labelClasses='pt-4'>
             {selectedMedia?.Genre?.split(',').map((g) => (
               <Tag key={g}>{g}</Tag>
             ))}
           </DataItem>
-          <DataItem label='Rated' labelClasses='pt-1'>
+          <DataItem label='Rated' labelClasses='pt-4'>
             {selectedMedia.Rated}
           </DataItem>
         </Col>
-        <Col span={8} className='pl-2'>
+        <Col span={8} className='pl-6'>
           {hasRatings && (
             <>
               <b>Ratings</b>
@@ -112,14 +123,20 @@ export const MediaDetail = () => {
           <DataItem label='Box Office' labelClasses={hasRatings ? 'pt-2' : ''} childrenClasses='text-xl'>
             {selectedMedia.BoxOffice}
           </DataItem>
-          <DataItem label='Awards' labelClasses='pt-1'>
+          <DataItem label='Awards' labelClasses='pt-4'>
             {selectedMedia.Awards}
           </DataItem>
-          <DataItem label='Runtime' labelClasses='pt-1'>
+          <DataItem label='Runtime' labelClasses='pt-4'>
             {selectedMedia.Runtime}
           </DataItem>
         </Col>
       </Row>
     </div>
+  );
+
+  return (
+    <Page title={TITLES.media} route={ROUTES.mediaDetail}>
+      {mediaDetailContent}
+    </Page>
   );
 };
