@@ -1,0 +1,53 @@
+@layer components {
+  .map-container {
+    height: 400px;
+  }
+
+  .weather-container.no-data {
+    height: 150px;
+  }
+
+  .hourly-forecast {
+    flex-flow: nowrap;
+    overflow-x: auto;
+    align-items: flex-start;
+  }
+
+  .forecast-item {
+    margin: 1.75em 1em 1.5em 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    background-color: theme('colors.grayScale01');
+  }
+
+  .moon-phase-icon {
+    height: 40px;
+  }
+
+  .weather-container .ant-switch {
+    padding: 4px 15px !important;
+    height: 33px !important;
+    font-size: 1.5em !important;
+  }
+
+  .weather-container .ant-switch-checked .ant-switch-handle {
+    left: calc(100% - 31px);
+  }
+
+  .weather-container .ant-switch-handle {
+    width: 29px !important;
+    height: 29px !important;
+  }
+
+  .weather-container .ant-switch-handle:before {
+    border-radius: 15px !important;
+  }
+
+  .weather-container .ant-switch-inner {
+    font-size: 16px !important;
+  }
+}

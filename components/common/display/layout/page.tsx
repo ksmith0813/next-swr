@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { SearchInput } from 'components/common/controls/searchInput';
-import { STRINGS } from 'constants/global';
+import { ROUTES, STRINGS } from 'constants/global';
 import Image from 'next/image';
 import BackgroundImage from 'public/web.png';
 
@@ -17,8 +17,21 @@ export const pageTestIds = {
   mainContent: 'main-content',
 };
 
+const getPlaceholder = (route: string) => {
+  switch (route) {
+    case ROUTES.weather:
+    case ROUTES.weatherSearch:
+      return STRINGS.weatherPlaceHolder;
+    case ROUTES.media:
+    case ROUTES.mediaSearch:
+      return STRINGS.mediaPlaceHolder;
+    default:
+      return STRINGS.peoplePlaceHolder;
+  }
+};
+
 export const Page: FC<PageProps> = ({ title, route, children, showHero = false }) => {
-  const searchInputContent = route && <SearchInput route={route} placeholder={STRINGS.moviePlaceHolder} />;
+  const searchInputContent = route && <SearchInput route={route} placeholder={getPlaceholder(route)} />;
 
   return (
     <div>

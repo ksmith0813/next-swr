@@ -16,9 +16,9 @@ export const DataItem: FC<DataItemProps> = ({ label, children, labelClasses = ''
   return (
     <>
       <Row className={labelClasses}>
-        <b>{label}</b>
+        <b className='text-[16px]'>{label}</b>
       </Row>
-      <Row className={`light-text ${childrenClasses}`}>{childrenContent}</Row>
+      <Row className={`text-grayScale05 pt-1 ${childrenClasses}`}>{childrenContent}</Row>
     </>
   );
 };

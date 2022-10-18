@@ -48,6 +48,7 @@ export const PROPS = {
 
 export const DATE_FORMAT = {
   date: 'MM/DD/YYYY',
+  time: 'h:mm A',
 };
 
 export const PLACEHOLDERS = {
@@ -57,5 +58,7 @@ export const PLACEHOLDERS = {
 export const STRINGS = {
   search: 'search',
   noResultsFound: 'No results found.',
-  moviePlaceHolder: 'You can search for your favorite movie, TV show, or video game.',
+  mediaPlaceHolder: 'You can search for your favorite movie, TV show, or video game.',
+  weatherPlaceHolder: 'You can search by zip code, latitude/longitude, or city/state.',
+  peoplePlaceHolder: 'You can city, state, and postal code',
 };
