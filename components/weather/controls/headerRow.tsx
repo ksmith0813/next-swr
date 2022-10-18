@@ -1,26 +1,28 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Col, Row, Switch } from 'antd';
-import { LocationProps } from './currentWeather';
+import { useWeatherContext, WeatherContextProps } from '../context/weatherContext';
+import { WeatherProps } from '../types/weather';
 
-interface HeaderRowProps {
-  location: LocationProps;
-  tempType: string;
-  setTempType: (checked: string) => void;
-}
+export const HeaderRow = () => {
+  const { weather, tempType, setTempType } = useWeatherContext() as WeatherContextProps;
 
-export const HeaderRow: FC<HeaderRowProps> = ({ location, tempType, setTempType }) => (
-  <Row className='p-4 pl-6 text-2xl border-b border-grayScale03' align='middle'>
-    <Col flex={1}>
-      {location.name}, {location.region}
-    </Col>
-    <Col>
-      <span className='mr-2'>Temp</span>
-      <Switch
-        checked={tempType === 'F'}
-        unCheckedChildren='C'
-        checkedChildren='F'
-        onChange={(checked) => setTempType(checked ? 'F' : 'C')}
-      />
-    </Col>
-  </Row>
-);
+  const selectedWeather: WeatherProps = weather;
+  const { location } = selectedWeather;
+
+  return (
+    <Row className='p-4 pl-6 text-2xl border-b border-grayScale03' align='middle'>
+      <Col flex={1}>
+        {location.name}, {location.region}
+      </Col>
+      <Col>
+        <span className='mr-2'>Temp</span>
+        <Switch
+          checked={tempType === 'F'}
+          unCheckedChildren='C'
+          checkedChildren='F'
+          onChange={(checked) => setTempType(checked ? 'F' : 'C')}
+        />
+      </Col>
+    </Row>
+  );
+};
