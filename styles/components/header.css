@@ -8,6 +8,7 @@
 
   .header-container > div {
     width: 200px;
+    color: theme('colors.grayScale05');
   }
 
   .header-container > div:last-child {
@@ -19,6 +20,7 @@
   }
 
   .current-route {
-    color: #1890ff;
+    color: theme('colors.grayScale07');
+    font-weight: 700;
   }
 }

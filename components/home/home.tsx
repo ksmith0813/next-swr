@@ -51,7 +51,7 @@ export const Home = () => {
           architecture pattern, with node running on the backend. GraphQL is used for querying data. In addition, I used
           tailwind to help make styling easier for the application. All around, some really good stuff.
         </div>
-        <div className='content-center pt-10 text-grayScale07'>Click the links below to learn more</div>
+        <div className='content-center pt-12 text-grayScale07'>Click the links below to learn more</div>
         <div className='mt-14'>
           <div className='flex flex-row space-x-20 text-center'>
             <ExternalLink title='Next.js' handler={goToNextJs} icon={VercelIcon} className='next' />
