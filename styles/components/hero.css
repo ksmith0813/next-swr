@@ -1,13 +1,13 @@
 @layer components {
   .hero-container {
-    height: 400px;
+    height: 15rem;
     width: 100%;
     position: relative;
     background-color: #171e26;
   }
 
   .hero {
-    height: 400px;
+    height: 15rem;
     width: 100%;
     @apply content-center;
     @apply text-5xl font-bold text-white absolute;

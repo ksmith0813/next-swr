@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { SearchInput } from 'components/common/controls/searchInput';
 import { STRINGS } from 'constants/global';
 import Image from 'next/image';
 import BackgroundImage from 'public/web.png';
 
 interface PageProps {
-  title: string;
+  title: ReactNode;
   route?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   showHero?: boolean;
 }
 
