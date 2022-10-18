@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import type { AppProps } from 'next/app';
-import { Layout } from 'components/__common__/layout/layout';
+import { Layout } from 'components/common/display/layout/layout';
 
 import { SWRConfig } from 'swr';
 import { request } from 'graphql-request';

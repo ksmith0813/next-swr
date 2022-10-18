@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import { SearchInput } from 'components/__common__/controls/searchInput';
+import { SearchInput } from 'components/common/controls/searchInput';
 import { STRINGS } from 'constants/global';
-import { Hero } from '../hero/hero';
+import Image from 'next/image';
+import BackgroundImage from 'public/web.png';
 
 interface PageProps {
   title: string;
@@ -21,7 +22,12 @@ export const Page: FC<PageProps> = ({ title, route, children, showHero = false }
 
   return (
     <div>
-      {showHero && <Hero />}
+      {showHero && (
+        <div className='hero-container'>
+          <Image src={BackgroundImage} className='hero-image' alt='Hero' layout='fill' priority id='site-logo' />
+          <div className='hero'>Next.js | SWR | GraphQL | Tailwind</div>
+        </div>
+      )}
       <main className='m-6 h-full' id={pageTestIds.main}>
         <div className='my-12 content-center'>
           <h1 className='text-3xl font-bold' id={pageTestIds.title}>

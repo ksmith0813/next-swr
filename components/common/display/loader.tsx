@@ -1,14 +1,14 @@
 import React, { FC, ReactNode } from 'react';
 import { Spin } from 'antd';
 
-interface LoaderContainerProps {
+interface LoaderProps {
   loading: boolean;
   children: ReactNode;
 }
 
-export const loaderTestId = 'loader-container';
+export const loaderTestId = 'loader';
 
-export const LoaderContainer: FC<LoaderContainerProps> = ({ loading, children }) => {
+export const Loader: FC<LoaderProps> = ({ loading, children }) => {
   if (loading) {
     return (
       <div className='flex justify-center items-center h-full text-6xl' id={loaderTestId}>

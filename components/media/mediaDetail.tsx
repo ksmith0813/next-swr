@@ -1,15 +1,14 @@
 import { Col, Row, Progress, Tag } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import moment from 'moment';
-import { DataItem } from 'components/__common__/display/dataItem';
-import { NoData } from 'components/__common__/display/noData';
+import { DataItem } from 'components/common/display/dataItem';
 import useSWR from 'swr';
 import { exists, useSWRReady } from 'utils/swr';
 import { GET_MOVIE } from 'graphql/movie';
 import { useRouter } from 'next/router';
-import { ROUTES, TITLES } from 'constants/global';
-import { Page } from 'components/__common__/layout/page/page';
-import { IconLinkButton } from 'components/__common__/button/iconLinkButton';
-import { ArrowLeftOutlined } from '@ant-design/icons';
+import { DATE_FORMAT, ROUTES, TITLES } from 'constants/global';
+import { Page } from 'components/common/display/layout/page';
+import { IconLinkButton } from 'components/common/controls/iconLinkButton';
 
 interface RatingsProps {
   Source: string;
@@ -81,22 +80,22 @@ export const MediaDetail = () => {
     </Row>
   );
 
-  const posterContent = (
+  const hasPoster = selectedMedia.Poster !== 'N/A';
+  const detailColSpan = hasPoster ? 10 : 12;
+
+  const posterContent = hasPoster && (
     <Col span={4}>
-      {selectedMedia.Poster !== 'N/A' && (
-        <div className='media-postor'>
-          <img src={selectedMedia.Poster} alt='movie-poster' />
-        </div>
-      )}
-      {selectedMedia.Poster === 'N/A' && <NoData message='Poster not available' />}
+      <div className='media-postor'>
+        <img src={selectedMedia.Poster} alt='movie-poster' />
+      </div>
     </Col>
   );
 
   const detailContent = (
-    <Col span={10} className='pl-6'>
+    <Col span={detailColSpan} className='pl-6'>
       <DataItem label='Plot'>{selectedMedia.Plot}</DataItem>
       <DataItem label='Release Year' labelClasses='pt-6'>
-        {moment(selectedMedia.Released).format('MM/DD/YYYY')}
+        {moment(selectedMedia.Released, DATE_FORMAT.date).format(DATE_FORMAT.date)}
       </DataItem>
       <DataItem label='Director' labelClasses='pt-6'>
         {selectedMedia.Director}{' '}
@@ -119,7 +118,7 @@ export const MediaDetail = () => {
   );
 
   const ratingsContent = (
-    <Col span={10} className='pl-6'>
+    <Col span={detailColSpan} className='pl-6'>
       {hasRatings && (
         <>
           <b>Ratings</b>

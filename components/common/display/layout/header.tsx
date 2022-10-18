@@ -1,9 +1,13 @@
+import React from 'react';
+import { Avatar } from 'antd';
 import { ROUTES } from 'constants/global';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
-import { AvatarLogo } from './avatarLogo';
-import { Logo } from './logo';
+import Luna from 'public/luna.jpg';
+import Signature from 'public/signature.png';
+
+export const displayedUserId = 'displayed-user';
 
 export const Header = () => {
   const router = useRouter();
@@ -14,7 +18,18 @@ export const Header = () => {
   return (
     <div className='header-container' id='header'>
       <div>
-        <Logo />
+        <div className='w-auto inline-flex cursor-pointer'>
+          <Image
+            src={Signature}
+            alt='Logo'
+            layout='fixed'
+            width={160}
+            height={45}
+            priority
+            onClick={() => router.push({ pathname: '/' })}
+            id='site-logo'
+          />
+        </div>
       </div>
       <div className='header'>
         <div className={routeClass([ROUTES.home])}>
@@ -39,7 +54,12 @@ export const Header = () => {
         </div>
       </div>
       <div>
-        <AvatarLogo />
+        <span id={displayedUserId}>
+          <Avatar
+            size={40}
+            src={<Image src={Luna} alt='Logo' layout='fixed' width={40} height={40} priority id='site-logo' />}
+          />
+        </span>
       </div>
     </div>
   );

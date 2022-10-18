@@ -1,8 +1,8 @@
 import React from 'react';
-import { Page } from 'components/__common__/layout/page/page';
+import { Page } from 'components/common/display/layout/page';
 import { ROUTES, TITLES } from 'constants/global';
 import { useRouter } from 'next/router';
-import { NoData } from 'components/__common__/display/noData';
+import { NoData } from 'components/common/display/noData';
 
 export const Weather = () => {
   const router = useRouter();

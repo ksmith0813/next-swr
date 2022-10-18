@@ -1,8 +1,8 @@
 import React, { FC, ReactNode } from 'react';
-import { Page } from 'components/__common__/layout/page/page';
+import { Page } from 'components/common/display/layout/page';
 import { ROUTES, TITLES } from 'constants/global';
 import { useRouter } from 'next/router';
-import { NoData } from 'components/__common__/display/noData';
+import { NoData } from 'components/common/display/noData';
 import { Col, Row, Tooltip } from 'antd';
 import Image from 'next/image';
 import MovieIcon from 'public/movie.svg';
@@ -60,7 +60,7 @@ export const Media = () => {
 
   const { data, error } = useSWR(useSWRReady(exists(search), GET_MOVIES, { search }));
 
-  const media = (data && data.movies && data.movies.Search) || undefined;
+  const media = data && data.movies && data.movies.Search;
 
   const initialState = (!data && !error) || !search;
 

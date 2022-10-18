@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { DataRow } from 'components/__common__/display/dataRows';
+import { DataRow } from 'components/common/display/dataRows';
 
 export const createDataRow = (
   prop: string,

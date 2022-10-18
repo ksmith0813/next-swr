@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import { Col, Row } from 'antd';
 import moment from 'moment';
-import { CurrencyFormatText } from 'components/__common__/display/formatText/currencyFormatText';
-import { PercentageFormatText } from 'components/__common__/display/formatText/percentageFormatText';
-import { PhoneNumberFormatText } from 'components/__common__/display/formatText/phoneNumberFormatText';
+import { CurrencyFormatText } from 'components/common/display/formatText/currencyFormatText';
+import { PercentageFormatText } from 'components/common/display/formatText/percentageFormatText';
+import { PhoneNumberFormatText } from 'components/common/display/formatText/phoneNumberFormatText';
 import { DATE_FORMAT } from 'constants/global';
 
 export interface DataRow {
@@ -39,6 +39,7 @@ export const DataRows: FC<DataRowsProps> = ({ prop, data }) => {
 
   const dataRowItems = data.map((item) => {
     if (item.hide) return null;
+
     const id = `data-row-${item.prop}${prop ? `-${prop}` : ''}`;
 
     return (

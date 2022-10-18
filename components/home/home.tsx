@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Page } from 'components/__common__/layout/page/page';
+import { Page } from 'components/common/display/layout/page';
 import Image from 'next/image';
 import GraphQLIcon from 'public/graphql.svg';
 import SWRIcon from 'public/swr.svg';
