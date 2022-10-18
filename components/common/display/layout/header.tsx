@@ -53,7 +53,7 @@ export const Header = () => {
           </Link>
         </div>
       </div>
-      <div>
+      <div className='pr-2'>
         <span id={displayedUserId}>
           <Avatar
             size={40}
