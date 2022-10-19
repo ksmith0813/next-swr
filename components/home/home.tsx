@@ -40,33 +40,43 @@ export const Home = () => {
     </Row>
   );
 
+  const descriptionContent = (
+    <div className='w-[800px] text-grayScale06'>
+      I recently got the opportunity to use Next.js and SWR for a few of my React projects. The Vercel team did a great
+      job making things a little easier to implement React Apps. Some things I really like about the Next.js framework
+      is that it handles routing and code splitting out of the box. Also, the Image component is really useful and
+      simplified the implementation required to display images like SVGs. This app also includes a UI/BFF architecture
+      pattern, with node running on the backend. GraphQL is used for querying data. In addition, I used tailwind to help
+      make styling easier for the application. All around, some really good stuff.
+    </div>
+  );
+
+  const externalLinksContent = (
+    <>
+      <div className='content-center pt-12 text-grayScale07'>Click the links below to learn more</div>
+      <div className='mt-14'>
+        <div className='flex flex-row space-x-20 text-center'>
+          <ExternalLink title='Next.js' handler={goToNextJs} icon={VercelIcon} className='next' />
+          <ExternalLink title='SWR' handler={goToSWR} icon={SWRIcon} className='swr' />
+          <ExternalLink
+            title='GraphQL'
+            handler={goToGraphQL}
+            icon={GraphQLIcon}
+            className='graphql'
+            size={70}
+            top='pt-[10px]'
+          />
+          <ExternalLink title='Tailwind' handler={goToTailwind} icon={TailwindIcon} className='tailwind' />
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <Page title={titleContent} showHero>
       <div className='home-container'>
-        <div className='w-[800px] text-grayScale06'>
-          I recently got the opportunity to use Next.js and SWR for a few of my React projects. The Vercel team did a
-          great job making things a little easier to implement React Apps. Some things I really like about the Next.js
-          framework is that it handles routing and code splitting out of the box. Also, the Image component is really
-          useful and simplified the implementation required to display images like SVGs. This app also includes a UI/BFF
-          architecture pattern, with node running on the backend. GraphQL is used for querying data. In addition, I used
-          tailwind to help make styling easier for the application. All around, some really good stuff.
-        </div>
-        <div className='content-center pt-12 text-grayScale07'>Click the links below to learn more</div>
-        <div className='mt-14'>
-          <div className='flex flex-row space-x-20 text-center'>
-            <ExternalLink title='Next.js' handler={goToNextJs} icon={VercelIcon} className='next' />
-            <ExternalLink title='SWR' handler={goToSWR} icon={SWRIcon} className='swr' />
-            <ExternalLink
-              title='GraphQL'
-              handler={goToGraphQL}
-              icon={GraphQLIcon}
-              className='graphql'
-              size={70}
-              top='pt-[10px]'
-            />
-            <ExternalLink title='Tailwind' handler={goToTailwind} icon={TailwindIcon} className='tailwind' />
-          </div>
-        </div>
+        {descriptionContent}
+        {externalLinksContent}
       </div>
     </Page>
   );
