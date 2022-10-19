@@ -239,7 +239,7 @@
 
 .ant-table-tbody > tr.ant-table-row:hover > td,
 .ant-table-tbody > tr > td.ant-table-cell-row-hover {
-  background-color: rgb(237 240 245 / var(--tw-bg-opacity)) !important;
+  background-color: #f3fcff !important;
 }
 
 .ant-table-thead
@@ -259,26 +259,6 @@
 
 .ant-pagination-item {
   border-radius: 0 !important;
-}
-
-.ant-pagination-item,
-.ant-pagination-next,
-.ant-pagination-prev {
-  border: 1px solid #d9d9d9;
-  background-color: #ffffff !important;
-  margin-right: 0 !important;
-}
-
-.ant-pagination-next,
-.ant-pagination-prev {
-  width: 63px;
-}
-
-.ant-pagination-item:hover,
-.ant-pagination-next:not(.ant-pagination-disabled):hover,
-.ant-pagination-prev:not(.ant-pagination-disabled):hover {
-  border: 1px solid #1890ff !important;
-  color: #1890ff !important;
 }
 
 .ant-pagination-disabled span {

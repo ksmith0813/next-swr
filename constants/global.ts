@@ -7,6 +7,7 @@ export const ROUTES = {
   weatherSearch: '/weather/[q]',
   people: '/people',
   peopleSearch: '/people/[q]',
+  peopleDetail: '/people/[q]/[id]',
 };
 
 export const TITLES = {

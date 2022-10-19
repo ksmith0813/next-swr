@@ -64,6 +64,14 @@ export const Media = () => {
 
   const initialState = (!data && !error) || !search;
 
+  if (initialState) {
+    return (
+      <Page title={TITLES.media} route={ROUTES.mediaSearch}>
+        <NoData />
+      </Page>
+    );
+  }
+
   const onSelectMedia = (searchString: string, imdbID: string) => {
     router.push({
       pathname: ROUTES.mediaDetail,
@@ -109,12 +117,9 @@ export const Media = () => {
     </div>
   );
 
-  const noDataContent = !media && <NoData />;
-
   return (
     <Page title={TITLES.media} route={ROUTES.mediaSearch}>
       {mediaListContent}
-      {noDataContent}
     </Page>
   );
 };

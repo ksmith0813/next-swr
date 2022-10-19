@@ -22,7 +22,7 @@
   }
 
   .antd {
-    color: theme('colors.primary')
+    color: theme('colors.primary');
   }
 
   .tailwind {
