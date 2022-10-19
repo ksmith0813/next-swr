@@ -67,8 +67,8 @@ export const Home = () => {
             handler={goToAntD}
             icon={AntDesignIcon}
             className='antd'
-            size={80}
-            top='pt-[5px]'
+            size={70}
+            top='pt-[10px]'
           />
           <ExternalLink
             title='GraphQL'
