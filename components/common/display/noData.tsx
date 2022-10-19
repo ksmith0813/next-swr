@@ -7,8 +7,8 @@ interface NoDataProps {
 }
 
 export const NoData: FC<NoDataProps> = ({ message = 'No Data' }) => (
-  <div className='content-center h-[calc(100vh-400px)]'>
-    <Image src={NoDataIcon} alt='No Data' height={200} width={200} priority />
+  <div className='content-center h-[calc(100vh-500px)]'>
+    <Image src={NoDataIcon} alt='No Data' height={300} width={300} priority />
     <div className='text-base text-grayScale06'>{message}</div>
   </div>
 );

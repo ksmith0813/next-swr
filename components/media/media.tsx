@@ -109,7 +109,7 @@ export const Media = () => {
     </div>
   );
 
-  const noDataContent = !search && <NoData />;
+  const noDataContent = !media && <NoData />;
 
   return (
     <Page title={TITLES.media} route={ROUTES.mediaSearch}>
