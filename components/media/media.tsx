@@ -89,7 +89,7 @@ export const Media = () => {
           {media?.map((item: MediaItemProps) => (
             <Row
               key={item.imdbID}
-              className='media-item hover:bg-grayScale01'
+              className='media-item hover:bg-primaryLight'
               align='middle'
               onClick={() => onSelectMedia(search, item.imdbID)}>
               <Col span={16}>{item.Title}</Col>
