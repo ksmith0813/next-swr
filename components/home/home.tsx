@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Page } from 'components/common/display/layout/page';
 import Image from 'next/image';
+import AntDesignIcon from 'public/antd.svg';
 import GraphQLIcon from 'public/graphql.svg';
 import ReactIcon from 'public/react.svg';
 import SWRIcon from 'public/swr.svg';
@@ -31,6 +32,8 @@ export const Home = () => {
 
   const goToGraphQL = () => window.open('https://graphql.org/', '_blank');
 
+  const goToAntD = () => window.open('https://ant.design/', '_blank');
+
   const goToTailwind = () => window.open('https://tailwindcss.com/', '_blank');
 
   const titleContent = (
@@ -46,8 +49,9 @@ export const Home = () => {
       job making things a little easier to implement React Apps. Some things I really like about the Next.js framework
       is that it handles routing and code splitting out of the box. Also, the Image component is really useful and
       simplified the implementation required to display images like SVGs. This app also includes a UI/BFF architecture
-      pattern, with node running on the backend. GraphQL is used for querying data. In addition, I used tailwind to help
-      make styling easier for the application. All around, some really good stuff.
+      pattern, with node running on the backend. GraphQL is used for querying data. In addition, I used the Ant Design
+      component library and tailwind.css to help build out components for the application. All around, some really good
+      stuff.
     </div>
   );
 
@@ -58,6 +62,14 @@ export const Home = () => {
         <div className='flex flex-row space-x-20 text-center'>
           <ExternalLink title='Next.js' handler={goToNextJs} icon={VercelIcon} className='next' />
           <ExternalLink title='SWR' handler={goToSWR} icon={SWRIcon} className='swr' />
+          <ExternalLink
+            title='Ant Design'
+            handler={goToAntD}
+            icon={AntDesignIcon}
+            className='antd'
+            size={80}
+            top='pt-[5px]'
+          />
           <ExternalLink
             title='GraphQL'
             handler={goToGraphQL}
