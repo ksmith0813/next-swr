@@ -72,7 +72,7 @@ export const People = () => {
 
   return (
     <Page title={TITLES.people}>
-      <div className='bg-white'>{tableContent}</div>
+      <div className='bg-white border border-grayScale03'>{tableContent}</div>
     </Page>
   );
 };
