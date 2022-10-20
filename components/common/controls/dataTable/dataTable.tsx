@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Table } from 'antd';
 
 interface DataTableProps {
-  id: string;
+  id?: string;
   testId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: any;
@@ -12,7 +12,7 @@ interface DataTableProps {
   onClick?: any;
 }
 
-export const DataTable: FC<DataTableProps> = ({ id, testId, columns, data = [], loading, onClick }) => (
+export const DataTable: FC<DataTableProps> = ({ id = 'id', testId, columns, data = [], loading, onClick }) => (
   <Table
     rowKey={id}
     columns={columns}

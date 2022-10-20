@@ -3,12 +3,8 @@ import { Page } from 'components/common/display/layout/page';
 import { TITLES } from 'constants/global';
 import { GET_USERS } from 'graphql/user';
 import useSWR from 'swr';
-import { DataTable } from 'components/common/controls/table/dataTable';
+import { DataTable } from 'components/common/controls/dataTable/dataTable';
 import { peopleColumns, PersonData } from './peopleColumns';
-
-interface IdProps {
-  value: string;
-}
 
 interface PictureProps {
   thumbnail: string;
@@ -30,7 +26,7 @@ interface LocationProps {
 }
 
 interface ResultsProps {
-  id: IdProps;
+  id: number;
   picture: PictureProps;
   name: NameProps;
   email: string;
@@ -43,10 +39,10 @@ const peopleMapper = (results: ResultsProps[]) => {
   if (!results) return [];
   const people: PersonData[] = [];
 
-  results.forEach((item: ResultsProps) => {
+  results.forEach((item: ResultsProps, index: number) => {
     const { location } = item;
     people.push({
-      id: item.id?.value,
+      id: index.toString(),
       picture: item.picture.thumbnail,
       name: `${item.name.first} ${item.name.last}`,
       email: item.email,
@@ -67,7 +63,6 @@ export const People = () => {
 
   const tableContent = (
     <DataTable
-      id='id'
       columns={peopleColumns}
       data={peopleMapper(data?.users.results)}
       loading={!data && !error}
