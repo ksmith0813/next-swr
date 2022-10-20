@@ -4,11 +4,9 @@ import { Table } from 'antd';
 interface DataTableProps {
   id?: string;
   testId: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: any;
   data: Record<string, unknown>[];
   loading?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: any;
 }
 
@@ -32,3 +30,13 @@ export const DataTable: FC<DataTableProps> = ({ id = 'id', testId, columns, data
     id={testId}
   />
 );
+
+export const sortAlphebetically = (a: any, b: any, property: string) => {
+  if (a[property] < b[property]) {
+    return -1;
+  }
+  if (a[property] > b[property]) {
+    return 1;
+  }
+  return 0;
+};
