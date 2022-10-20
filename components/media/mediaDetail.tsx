@@ -3,7 +3,6 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { DataItem } from 'components/common/display/dataItem';
 import useSWR from 'swr';
-import { exists, useSWRReady } from 'utils/swr';
 import { GET_MOVIE } from 'graphql/movie';
 import { useRouter } from 'next/router';
 import { DATE_FORMAT, ROUTES, TITLES } from 'constants/global';
@@ -36,7 +35,7 @@ export const MediaDetail = () => {
   const search = router?.query?.q as string;
   const id = router?.query?.id as string;
 
-  const { data } = useSWR(useSWRReady(exists(id), GET_MOVIE, { imdbId: id }));
+  const { data } = useSWR(id && [GET_MOVIE, { imdbId: id }]);
 
   const backToAll = () => {
     router.push({

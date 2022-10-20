@@ -56,3 +56,19 @@ export const DataRows: FC<DataRowsProps> = ({ prop, data }) => {
 
   return <>{dataRowItems}</>;
 };
+
+export const createDataRow = (
+  prop: string,
+  value: ReactNode,
+  label: string,
+  config?: {
+    hide?: boolean;
+    format?: 'currency' | 'percentage' | 'phone' | 'date';
+  },
+): DataRow => ({
+  prop,
+  value,
+  label,
+  hide: config?.hide,
+  format: config?.format,
+});

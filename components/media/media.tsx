@@ -9,7 +9,6 @@ import MovieIcon from 'public/movie.svg';
 import TVIcon from 'public/tv.svg';
 import GameIcon from 'public/game.svg';
 import useSWR from 'swr';
-import { exists, useSWRReady } from 'utils/swr';
 import { GET_MOVIES } from 'graphql/movie';
 
 interface MediaTypeProps {
@@ -58,7 +57,7 @@ export const Media = () => {
   const router = useRouter();
   const search = router?.query?.q as string;
 
-  const { data, error } = useSWR(useSWRReady(exists(search), GET_MOVIES, { search }));
+  const { data, error } = useSWR(search && [GET_MOVIES, { search }]);
 
   const media = data && data.movies && data.movies.Search;
 

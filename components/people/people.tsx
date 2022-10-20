@@ -1,38 +1,69 @@
 import React from 'react';
 import { Page } from 'components/common/display/layout/page';
 import { TITLES } from 'constants/global';
-import { useSWRReady } from 'utils/swr';
 import { GET_USERS } from 'graphql/user';
 import useSWR from 'swr';
 import { DataTable } from 'components/common/controls/table/dataTable';
 import { peopleColumns, PersonData } from './peopleColumns';
 
-export const People = () => {
-  const { data, error } = useSWR(useSWRReady(true, GET_USERS));
+interface IdProps {
+  value: string;
+}
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const peopleMapper = (results: any = []) => {
-    const people: PersonData[] = [];
+interface PictureProps {
+  thumbnail: string;
+}
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    results.forEach((item: any) => {
-      const { location } = item;
-      people.push({
-        id: item.id?.value,
-        picture: item.picture.thumbnail,
-        name: `${item.name.first} ${item.name.last}`,
-        email: item.email,
-        age: item.dob.age,
-        state: location.state,
-        city: location.city,
-        phone: item.phone,
-        postalCode: location.postcode,
-        country: location.country,
-      });
+interface NameProps {
+  first: string;
+  last: string;
+}
+
+interface DateOfBirthProps {
+  age: number;
+}
+interface LocationProps {
+  city: string;
+  state: string;
+  postcode: string;
+  country: string;
+}
+
+interface ResultsProps {
+  id: IdProps;
+  picture: PictureProps;
+  name: NameProps;
+  email: string;
+  dob: DateOfBirthProps;
+  phone: string;
+  location: LocationProps;
+}
+
+const peopleMapper = (results: ResultsProps[]) => {
+  if (!results) return [];
+  const people: PersonData[] = [];
+
+  results.forEach((item: ResultsProps) => {
+    const { location } = item;
+    people.push({
+      id: item.id?.value,
+      picture: item.picture.thumbnail,
+      name: `${item.name.first} ${item.name.last}`,
+      email: item.email,
+      age: item.dob.age,
+      phone: item.phone,
+      city: location.city,
+      state: location.state,
+      postalCode: location.postcode,
+      country: location.country,
     });
+  });
 
-    return people;
-  };
+  return people;
+};
+
+export const People = () => {
+  const { data, error } = useSWR(GET_USERS);
 
   const tableContent = (
     <DataTable

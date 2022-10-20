@@ -1,7 +1,6 @@
 import { createContext, FC, ReactNode, useContext, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { exists, useSWRReady } from 'utils/swr';
 import { GET_WEATHER } from 'graphql/weather';
 import { WeatherProps } from '../types/weather';
 
@@ -19,11 +18,11 @@ export const WeatherContext = createContext<WeatherContextProps | undefined>(und
 
 export const WeatherProvider: FC<WeatherProviderProps> = ({ children }) => {
   const router = useRouter();
-  const search = router?.query?.q as string;
-
   const [tempType, setTempType] = useState('F');
 
-  const { data } = useSWR(useSWRReady(exists(search), GET_WEATHER, { search }));
+  const search = router?.query?.q as string;
+
+  const { data } = useSWR(search && [GET_WEATHER, { search }]);
 
   const weather = data && data.weather;
 
