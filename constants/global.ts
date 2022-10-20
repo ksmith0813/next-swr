@@ -13,7 +13,7 @@ export const ROUTES = {
 export const TITLES = {
   media: 'Search for Media',
   weather: 'Search for Weather',
-  people: 'Random People',
+  people: 'Random Folks',
 };
 
 export const PHONE_TYPE = {
