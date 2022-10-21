@@ -6,8 +6,7 @@ export const ROUTES = {
   weather: '/weather',
   weatherSearch: '/weather/[q]',
   people: '/people',
-  peopleSearch: '/people/[q]',
-  peopleDetail: '/people/[q]/[id]',
+  peopleDetail: '/people/[q]',
 };
 
 export const TITLES = {

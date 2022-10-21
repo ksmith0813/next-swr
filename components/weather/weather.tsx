@@ -4,6 +4,7 @@ import { ROUTES, TITLES } from 'constants/global';
 import { NoData } from 'components/common/display/noData';
 import moment from 'moment';
 import { Col, Row } from 'antd';
+import { Loader } from 'components/common/display/loader';
 import { Astro } from './controls/astro';
 import { CurrentWeather } from './controls/currentWeather';
 import { HeaderRow } from './controls/headerRow';
@@ -13,7 +14,7 @@ import { useWeatherContext, WeatherContextProps } from './context/weatherContext
 import { WeatherProps } from './types/weather';
 
 export const Weather = () => {
-  const { weather } = useWeatherContext() as WeatherContextProps;
+  const { loading, weather } = useWeatherContext() as WeatherContextProps;
 
   if (!weather) {
     return (
@@ -31,22 +32,24 @@ export const Weather = () => {
 
   return (
     <Page title={TITLES.weather} route={ROUTES.weatherSearch}>
-      <div className='weather-container'>
-        <HeaderRow />
-        <Row className='pt-8'>
-          <Col span={8} className='pl-6 text-grayScale05 text-xl content-center'>
-            Map Coming soon
-          </Col>
-          <Col span={8} className='pl-12'>
-            <CurrentWeather />
-          </Col>
-          <Col span={8} className='pl-12'>
-            <Astro />
-            <LocationTime />
-          </Col>
-        </Row>
-        {forecastHourly && <HourlyWeather />}
-      </div>
+      <Loader loading={loading}>
+        <div className='weather-container'>
+          <HeaderRow />
+          <Row className='pt-8'>
+            <Col span={8} className='pl-6 text-grayScale05 text-xl content-center'>
+              Map Coming soon
+            </Col>
+            <Col span={8} className='pl-12'>
+              <CurrentWeather />
+            </Col>
+            <Col span={8} className='pl-12'>
+              <Astro />
+              <LocationTime />
+            </Col>
+          </Row>
+          {forecastHourly && <HourlyWeather />}
+        </div>
+      </Loader>
     </Page>
   );
 };

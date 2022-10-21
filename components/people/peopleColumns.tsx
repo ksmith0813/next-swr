@@ -1,6 +1,8 @@
 import { Avatar } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { sortAlphebetically } from 'components/common/controls/dataTable/dataTable';
+import { ROUTES } from 'constants/global';
+import Link from 'next/link';
 
 export type PersonData = {
   id: string;
@@ -47,18 +49,17 @@ export const peopleColumns: ColumnsType<PersonData> = [
   {
     title: 'Age',
     dataIndex: 'age',
-    width: 100,
     sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'Phone',
-    dataIndex: 'phone',
-    width: 150,
   },
   {
     title: 'City',
     dataIndex: 'city',
     sorter: (a, b) => sortAlphebetically(a, b, 'name'),
+    render: (value) => (
+      <Link href={`${ROUTES.weather}/${value}`} className='city-link'>
+        {value}
+      </Link>
+    ),
   },
   {
     title: 'State',
@@ -73,5 +74,9 @@ export const peopleColumns: ColumnsType<PersonData> = [
   {
     title: 'Postal Code',
     dataIndex: 'postalCode',
+  },
+  {
+    title: 'Phone',
+    dataIndex: 'phone',
   },
 ];

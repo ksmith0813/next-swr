@@ -10,6 +10,7 @@ import TVIcon from 'public/tv.svg';
 import GameIcon from 'public/game.svg';
 import useSWR from 'swr';
 import { GET_MOVIES } from 'graphql/movie';
+import { Loader } from 'components/common/display/loader';
 
 interface MediaTypeProps {
   type: string;
@@ -61,7 +62,8 @@ export const Media = () => {
 
   const media = data && data.movies && data.movies.Search;
 
-  const initialState = (!data && !error) || !search;
+  const loading = !data && !error;
+  const initialState = loading || !search;
 
   if (initialState) {
     return (
@@ -118,7 +120,7 @@ export const Media = () => {
 
   return (
     <Page title={TITLES.media} route={ROUTES.mediaSearch}>
-      {mediaListContent}
+      <Loader loading={loading}>{mediaListContent}</Loader>
     </Page>
   );
 };

@@ -9,6 +9,7 @@ interface WeatherProviderProps {
 }
 
 export interface WeatherContextProps {
+  loading: boolean;
   weather: WeatherProps;
   tempType: string;
   setTempType: (type: string) => void;
@@ -22,17 +23,18 @@ export const WeatherProvider: FC<WeatherProviderProps> = ({ children }) => {
 
   const search = router?.query?.q as string;
 
-  const { data } = useSWR(search && [GET_WEATHER, { search }]);
+  const { data, error } = useSWR(search && [GET_WEATHER, { search }]);
 
   const weather = data && data.weather;
 
   const contextValues: WeatherContextProps = useMemo(
     () => ({
+      loading: !data && !error,
       weather,
       tempType,
       setTempType,
     }),
-    [weather, tempType, setTempType],
+    [data, error, weather, tempType, setTempType],
   );
 
   return <WeatherContext.Provider value={contextValues}>{children}</WeatherContext.Provider>;

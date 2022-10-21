@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { DATE_FORMAT, ROUTES, TITLES } from 'constants/global';
 import { Page } from 'components/common/display/layout/page';
 import { IconLinkButton } from 'components/common/controls/iconLinkButton';
+import { Loader } from 'components/common/display/loader';
 
 interface RatingsProps {
   Source: string;
@@ -35,7 +36,9 @@ export const MediaDetail = () => {
   const search = router?.query?.q as string;
   const id = router?.query?.id as string;
 
-  const { data } = useSWR(id && [GET_MOVIE, { imdbId: id }]);
+  const { data, error } = useSWR(id && [GET_MOVIE, { imdbId: id }]);
+
+  const loading = !data && !error;
 
   const backToAll = () => {
     router.push({
@@ -145,14 +148,16 @@ export const MediaDetail = () => {
 
   return (
     <Page title={TITLES.media}>
-      <div className='bg-white text-[16px] border border-grayScale03'>
-        {headerContent}
-        <Row className='p-6'>
-          {posterContent}
-          {detailContent}
-          {ratingsContent}
-        </Row>
-      </div>
+      <Loader loading={loading}>
+        <div className='bg-white text-[16px] border border-grayScale03'>
+          {headerContent}
+          <Row className='p-6'>
+            {posterContent}
+            {detailContent}
+            {ratingsContent}
+          </Row>
+        </div>
+      </Loader>
     </Page>
   );
 };

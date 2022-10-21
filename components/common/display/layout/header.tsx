@@ -47,7 +47,7 @@ export const Header = () => {
             Weather
           </Link>
         </div>
-        <div className={routeClass([ROUTES.people, ROUTES.peopleSearch])}>
+        <div className={routeClass([ROUTES.people, ROUTES.peopleDetail])}>
           <Link href={{ pathname: ROUTES.people }} id='people-link'>
             People
           </Link>
