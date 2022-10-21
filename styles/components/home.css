@@ -12,6 +12,10 @@
     transform: scale(1.15);
   }
 
+  .redux {
+    color: #764abc;
+  }
+
   .next,
   .swr {
     color: #222222;
