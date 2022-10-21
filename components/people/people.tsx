@@ -1,41 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Page } from 'components/common/display/layout/page';
 import { ROUTES, TITLES } from 'constants/global';
 import { GET_USERS } from 'graphql/user';
 import useSWR from 'swr';
 import { DataTable } from 'components/common/controls/dataTable/dataTable';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPeople, setInitialLoad, getPeopleState, ResultsProps } from 'store/slices/peopleSlice';
 import { peopleColumns, PersonData } from './peopleColumns';
 import { Person } from './person';
-
-interface PictureProps {
-  thumbnail: string;
-}
-
-interface NameProps {
-  first: string;
-  last: string;
-}
-
-interface DateOfBirthProps {
-  age: number;
-}
-interface LocationProps {
-  city: string;
-  state: string;
-  postcode: string;
-  country: string;
-}
-
-interface ResultsProps {
-  id: number;
-  picture: PictureProps;
-  name: NameProps;
-  email: string;
-  dob: DateOfBirthProps;
-  phone: string;
-  location: LocationProps;
-}
 
 const peopleMapper = (results: ResultsProps[]) => {
   if (!results) return [];
@@ -62,9 +35,18 @@ const peopleMapper = (results: ResultsProps[]) => {
 
 export const People = () => {
   const router = useRouter();
+  const state = useSelector(getPeopleState);
+  const dispatch = useDispatch();
 
-  // TODO: Since the user api returns random users everytime, consider putting results in redux store.
   const { data, error } = useSWR(GET_USERS);
+
+  useEffect(() => {
+    if (data && !state?.people.users.length) {
+      dispatch(setPeople(data?.users.results));
+      dispatch(setInitialLoad());
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const detailId = router?.query?.q as string;
 
@@ -82,7 +64,7 @@ export const People = () => {
   const tableContent = (
     <DataTable
       columns={peopleColumns}
-      data={peopleMapper(data?.users.results)}
+      data={peopleMapper(state?.people?.users)}
       loading={!data && !error}
       onClick={handleClick}
       testId='people-table'
