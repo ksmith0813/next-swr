@@ -13,14 +13,16 @@ export const Layout: FC<LayoutProps> = ({ children }) => (
     <Header />
     <div className='flex-1'>{children}</div>
     <footer className='footer-container' id='footer'>
-      <Link href='https://github.com/ksmith0813/next-swr' id='github-link'>
-        <Row align='middle'>
-          <Col>
-            <GithubFilled />
-          </Col>
-          <Col className='pl-2'>Github</Col>
-        </Row>
-      </Link>
+      <div className='cursor-pointer'>
+        <Link href='https://github.com/ksmith0813/next-swr' id='github-link'>
+          <Row align='middle'>
+            <Col>
+              <GithubFilled />
+            </Col>
+            <Col className='pl-2'>Github</Col>
+          </Row>
+        </Link>
+      </div>
     </footer>
   </div>
 );
