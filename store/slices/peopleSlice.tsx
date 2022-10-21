@@ -40,8 +40,11 @@ export const slice = createSlice({
       state.initialLoad = false;
     },
     setPeople: (state: any, action: any) => {
+      const users = action.payload;
+      users.forEach((user: ResultsProps, index: number) => {
+        user.id = index + 1;
+      });
       state.users = action.payload;
-      state.loading = false;
     },
   },
 });

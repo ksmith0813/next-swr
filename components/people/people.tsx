@@ -17,7 +17,7 @@ const peopleMapper = (results: ResultsProps[]) => {
   results.forEach((item: ResultsProps, index: number) => {
     const { location } = item;
     people.push({
-      id: index.toString(),
+      id: (index + 1).toString(),
       picture: item.picture.thumbnail,
       name: `${item.name.first} ${item.name.last}`,
       email: item.email,
@@ -46,13 +46,11 @@ export const People = () => {
       dispatch(setInitialLoad());
     }
     // eslint-disable-next-line
-  }, []);
+  }, [data]);
 
   const detailId = router?.query?.q as string;
 
-  if (detailId) {
-    return <Person />;
-  }
+  if (detailId) return <Person />;
 
   const handleClick = (row: PersonData) => {
     router.push({

@@ -149,7 +149,7 @@ export const MediaDetail = () => {
   return (
     <Page title={TITLES.media}>
       <Loader loading={loading}>
-        <div className='bg-white text-[16px] border border-grayScale03'>
+        <div className='page-container'>
           {headerContent}
           <Row className='p-6'>
             {posterContent}

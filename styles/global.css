@@ -13,6 +13,10 @@
     @apply print-white;
   }
 
+  .page-container {
+    @apply bg-white text-[16px] border border-grayScale03;
+  }
+
   .content-center {
     display: flex;
     justify-content: center;
