@@ -1,8 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { SearchInput } from 'components/common/controls/searchInput';
 import { ROUTES, STRINGS } from 'constants/global';
-import Image from 'next/image';
-import BackgroundImage from 'public/web.png';
 
 interface PageProps {
   title: ReactNode;
@@ -37,8 +35,7 @@ export const Page: FC<PageProps> = ({ title, route, children, showHero = false }
     <div>
       {showHero && (
         <div className='hero-container'>
-          <Image src={BackgroundImage} className='hero-image' alt='Hero' layout='fill' priority id='site-logo' />
-          <div className='hero'>Next.js | SWR | GraphQL | Tailwind</div>
+          <div>Next.js | SWR | GraphQL | Tailwind</div>
         </div>
       )}
       <main className='m-6 h-full' id={pageTestIds.main}>
