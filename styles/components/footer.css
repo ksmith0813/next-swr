@@ -6,4 +6,8 @@
     @apply border-t border-grayScale03 fixed w-full top-full sticky p-5 text-2xl;
     @apply print-hidden;
   }
+
+  .footer-container svg {
+    margin-top: -0.6rem;
+  }
 }
