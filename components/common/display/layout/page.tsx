@@ -35,7 +35,7 @@ export const Page: FC<PageProps> = ({ title, route, children, showHero = false }
     <div>
       {showHero && (
         <div className='hero-container'>
-          <div>Next.js | SWR | GraphQL | Tailwind</div>
+          <div>Next.js | SWR | Redux Toolkit | GraphQL | Tailwind</div>
         </div>
       )}
       <main className='m-6 h-full' id={pageTestIds.main}>

@@ -51,9 +51,10 @@ export const Home = () => {
       I recently got the opportunity to use Next.js and SWR for a few of my React projects. The Vercel team did a great
       job making things a little easier to implement React Apps. Some things I really like about the Next.js framework
       is that it handles routing and code splitting out of the box. Also, the Image component is really useful and
-      simplified the implementation required to display images like SVGs. This app also includes a UI/BFF architecture
-      pattern, with node running on the backend. GraphQL is used for querying data. In addition, I used the Ant Design
-      component library and tailwind.css to help build out components for the application.
+      simplified the implementation required to display images like an SVG. This app also includes a UI/BFF architecture
+      pattern, with node running on the backend. GraphQL is used for querying data on the backend. For a few global
+      state items, the Redux Toolkit was implemented. In addition, I used the Ant Design library and tailwind.css to
+      help build out components for the application.
     </div>
   );
 
