@@ -23,7 +23,7 @@ export const Person = () => {
 
   const headerContent = (
     <Row className='pb-6' align='middle'>
-      <Col className='text-xl'>{`${person.name.first} ${person.name.last}`}</Col>
+      <Col className='text-xl'>{`${person?.name.first} ${person?.name.last}`}</Col>
       <Col>
         <IconLinkButton
           title='Back to Results'
