@@ -1,25 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface PictureProps {
+type PictureProps = {
   thumbnail: string;
-}
+};
 
-interface NameProps {
+type NameProps = {
   first: string;
   last: string;
-}
+};
 
-interface DateOfBirthProps {
+type DateOfBirthProps = {
   age: number;
-}
-interface LocationProps {
+};
+type LocationProps = {
   city: string;
   state: string;
   postcode: string;
   country: string;
-}
+};
 
-export interface ResultsProps {
+export type ResultsProps = {
   id: number;
   picture: PictureProps;
   name: NameProps;
@@ -27,7 +27,7 @@ export interface ResultsProps {
   dob: DateOfBirthProps;
   phone: string;
   location: LocationProps;
-}
+};
 
 export const slice = createSlice({
   name: 'people',
