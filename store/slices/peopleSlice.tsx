@@ -12,6 +12,7 @@ type NameProps = {
 type DateOfBirthProps = {
   age: number;
 };
+
 type LocationProps = {
   city: string;
   state: string;
